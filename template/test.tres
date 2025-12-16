@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ResourceCharacter" load_steps=3 format=3 uid="uid://3qkkt241srxe"]
+
+[ext_resource type="Texture2D" uid="uid://b1gn7iacu8q0c" path="res://template/icon.png" id="1_hr0ed"]
+[ext_resource type="Script" uid="uid://b47eevd3ek7up" path="res://template/system/character/resource_character.gd" id="1_umafu"]
+
+[resource]
+script = ExtResource("1_umafu")
+faceset = ExtResource("1_hr0ed")
+metadata/_custom_type_script = "uid://b47eevd3ek7up"

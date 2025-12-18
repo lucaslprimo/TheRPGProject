@@ -1,4 +1,4 @@
-@icon("../particle/icon_particle.png")
+@icon("../particles/icon_particle.png")
 @tool
 extends GPUParticles2D
 class_name Particle

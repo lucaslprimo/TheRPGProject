@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ck4ncv1wxtff5"]
 
-[ext_resource type="TileSet" uid="uid://tir0rfjtiwma" path="res://main/maps/tileset.tres" id="1_3llky"]
+[ext_resource type="TileSet" uid="uid://tir0rfjtiwma" path="res://project/resources/tileset.tres" id="1_3llky"]
 [ext_resource type="Script" uid="uid://fg6aean1ylsx" path="res://template/system/map/map.gd" id="1_kj2hq"]
 [ext_resource type="Texture2D" uid="uid://dwtpv76elqabc" path="res://template/system/map/map_size_bg.png" id="2_63ctl"]
 [ext_resource type="Script" uid="uid://jb8djkra6hdg" path="res://template/system/environment/environment_area.gd" id="9_chgur"]

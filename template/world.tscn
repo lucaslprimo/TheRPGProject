@@ -1,7 +1,7 @@
 [gd_scene load_steps=40 format=3 uid="uid://c7j4hgkdbtapk"]
 
 [ext_resource type="Script" uid="uid://jbw7ej07ry14" path="res://template/world.gd" id="1_804hp"]
-[ext_resource type="PackedScene" uid="uid://c83pfkmwxrf3p" path="res://main/maps/map_village.tscn" id="2_7kl5b"]
+[ext_resource type="PackedScene" uid="uid://c83pfkmwxrf3p" path="res://project/scenes/maps/map_village.tscn" id="2_7kl5b"]
 [ext_resource type="Resource" uid="uid://uditl1ns5wqe" path="res://template/content/weapon/club/club.tres" id="3_gy5i3"]
 [ext_resource type="Script" uid="uid://d1cign6w25aqt" path="res://template/system/camera/camera_grid.gd" id="4_am12t"]
 [ext_resource type="Texture2D" uid="uid://bs4uxpqfesgko" path="res://template/system/environment/fx/rain.png" id="8_5w8v0"]

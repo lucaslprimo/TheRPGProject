@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="HealthStats" load_steps=2 format=3 uid="uid://b4yhj63q1370c"]
+
+[ext_resource type="Script" uid="uid://cogb8cvq1e7cd" path="res://project/scripts/stats/health.gd" id="1_o8dyb"]
+
+[resource]
+script = ExtResource("1_o8dyb")
+metadata/_custom_type_script = "uid://cogb8cvq1e7cd"

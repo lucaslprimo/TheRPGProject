@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://0cn4yup57a3j" path="res://template/system/stat/life/resource_life.gd" id="2_ogjwx"]
 [ext_resource type="Script" uid="uid://cxesnpebg53yb" path="res://template/system/damage/hitbox.gd" id="3_jt54f"]
 [ext_resource type="Texture2D" uid="uid://dgbkuuwc1j8km" path="res://template/content/particle/particle_rock.png" id="4_af1pe"]
-[ext_resource type="Material" uid="uid://cbc0e23kmqwml" path="res://main/particles/particle_process_explosion.tres" id="4_i466n"]
-[ext_resource type="Script" uid="uid://80t2nlpwsabm" path="res://main/particles/particle.gd" id="5_tljad"]
+[ext_resource type="Material" uid="uid://cbc0e23kmqwml" path="res://project/scripts/particles/particle_process_explosion.tres" id="4_i466n"]
+[ext_resource type="Script" uid="uid://80t2nlpwsabm" path="res://project/scripts/particles/particle.gd" id="5_tljad"]
 [ext_resource type="Resource" uid="uid://h31w51nsttnc" path="res://template/content/particle/particle_rock.tres" id="6_ebru0"]
 
 [sub_resource type="Resource" id="Resource_yd1gc"]

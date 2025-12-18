@@ -1,4 +1,4 @@
-@icon("../particle/icon_resource_particle.png")
+@icon("../particles/icon_resource_particle.png")
 @tool
 extends Resource
 class_name ResourceParticle

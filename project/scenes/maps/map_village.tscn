@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://bo58x38bxsa5o" path="res://template/system/behavior/behavior_follow.gd" id="9_pof52"]
 [ext_resource type="Script" uid="uid://42si4s2y45c4" path="res://template/system/behavior/behavior_follow_path.gd" id="9_vk7bb"]
 [ext_resource type="PackedScene" uid="uid://bheb2v7fdghba" path="res://template/content/character/samurai_blue/samurai_blue.tscn" id="10_kdwhh"]
-[ext_resource type="AudioStream" uid="uid://c7vlu3uu47bb5" path="res://main/assets/audio/music/theme_dream.ogg" id="15_4dufa"]
+[ext_resource type="AudioStream" uid="uid://c7vlu3uu47bb5" path="res://project/assets/audio/music/theme_dream.ogg" id="15_4dufa"]
 [ext_resource type="Script" uid="uid://cnuxju0tl6cry" path="res://template/system/teleporter/teleporter.gd" id="18_rh3ex"]
 
 [sub_resource type="Resource" id="Resource_m4bmw"]

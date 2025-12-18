@@ -3,6 +3,8 @@ class_name StateMachine extends Node
 var states:Dictionary[StringName, State] = {}
 var current_state:State
 
+@export var animator:AnimController
+
 var last_state:StringName = ""
 var is_stacked:bool = false
 var is_final_state:bool = false

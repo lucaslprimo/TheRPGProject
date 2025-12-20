@@ -1,5 +1,5 @@
 @tool
-class_name HumanoidSettings
+class_name HumanoidBase
 extends CharacterBody2D
 
 @onready var skin: SkinManager = $Skin

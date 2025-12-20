@@ -1,12 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bkah125sti8rj"]
 
-[ext_resource type="PackedScene" uid="uid://c8xs5tiuk8csl" path="res://project/scenes/Humanoid.tscn" id="1_hrid0"]
+[ext_resource type="PackedScene" uid="uid://c8xs5tiuk8csl" path="res://project/scenes/HumanoidBase.tscn" id="1_hrid0"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Humanoid" parent="." instance=ExtResource("1_hrid0")]
 position = Vector2(62, 5)
-selected_skin = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

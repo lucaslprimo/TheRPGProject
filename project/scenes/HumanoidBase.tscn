@@ -1,24 +1,52 @@
-[gd_scene load_steps=34 format=3 uid="uid://c8xs5tiuk8csl"]
+[gd_scene load_steps=35 format=3 uid="uid://c8xs5tiuk8csl"]
 
 [ext_resource type="Script" uid="uid://dkn878huqsmrg" path="res://project/scripts/humanoids/humanoid_base.gd" id="1_e3xw2"]
-[ext_resource type="Texture2D" uid="uid://baifyngifhbto" path="res://project/assets/Characters/Shadow.png" id="1_x2all"]
-[ext_resource type="Texture2D" uid="uid://3w4547733bjn" path="res://project/assets/Characters/Hunter/SpriteSheet.png" id="2_8yvsn"]
+[ext_resource type="Texture2D" uid="uid://bj1tn7or31ghj" path="res://project/assets/Characters/Shadow.png" id="1_x2all"]
+[ext_resource type="Texture2D" uid="uid://byreayk5iby2y" path="res://project/assets/Characters/Hunter/SpriteSheet.png" id="2_8yvsn"]
 [ext_resource type="Script" uid="uid://cb8nmj1tedwys" path="res://project/scripts/components/hurtbox_component.gd" id="3_8yvsn"]
 [ext_resource type="Texture2D" uid="uid://7ewbeaje4kvj" path="res://project/assets/Weapons/BigSword/Sprite.png" id="3_77afj"]
 [ext_resource type="Script" uid="uid://c0mwlx4wif2vh" path="res://project/scripts/humanoids/skin_manager.gd" id="3_x3p1x"]
 [ext_resource type="Script" uid="uid://c1c4on1mymyim" path="res://project/scripts/utils/state_machine/state_machine.gd" id="4_kqmbg"]
+[ext_resource type="Texture2D" uid="uid://tshqx1lt4pef" path="res://project/assets/fx/SlashCurved.png" id="5_7ub6x"]
 [ext_resource type="Script" uid="uid://c6y1t1dbmj457" path="res://project/scripts/humanoids/idle_state.gd" id="5_mgefr"]
-[ext_resource type="Texture2D" uid="uid://c3ktyancgr6ov" path="res://project/assets/Characters/Knight/SpriteSheet.png" id="5_xqs57"]
-[ext_resource type="Texture2D" uid="uid://0h2qjw81em80" path="res://project/assets/Characters/Inspector/SpriteSheet.png" id="6_a3lht"]
+[ext_resource type="Texture2D" uid="uid://884bsfawq7m0" path="res://project/assets/Characters/Knight/SpriteSheet.png" id="5_xqs57"]
+[ext_resource type="Texture2D" uid="uid://bttwc2k7mne88" path="res://project/assets/Characters/Inspector/SpriteSheet.png" id="6_a3lht"]
 [ext_resource type="Script" uid="uid://cgq5xhooviis4" path="res://project/scripts/humanoids/walk_state.gd" id="6_mgefr"]
 [ext_resource type="Script" uid="uid://dypjgkp7aga7e" path="res://project/scripts/humanoids/humanoid_anim_ctrl.gd" id="7_c6dlt"]
 [ext_resource type="Script" uid="uid://c57fo620t84ns" path="res://project/scripts/components/movement_component.gd" id="8_wdesk"]
-[ext_resource type="Texture2D" uid="uid://ct8ukvbjjskt8" path="res://project/assets/Characters/LionYellow/SpriteSheet.png" id="8_y1gv5"]
+[ext_resource type="Texture2D" uid="uid://dh12ajp7an34k" path="res://project/assets/Characters/LionYellow/SpriteSheet.png" id="8_y1gv5"]
 [ext_resource type="Script" uid="uid://8qf5fiyl4yu3" path="res://project/scripts/components/health_component.gd" id="14_a3lht"]
 [ext_resource type="Script" uid="uid://dnmf7mwip03pk" path="res://project/scripts/components/hitbox_component.gd" id="16_7ub6x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lftxd"]
 radius = 6.0
+
+[sub_resource type="Animation" id="Animation_x338g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.153, -7.158)]
+}
 
 [sub_resource type="Animation" id="Animation_8xpxb"]
 resource_name = "attack_1"
@@ -46,33 +74,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.153, 3.492)]
-}
-
-[sub_resource type="Animation" id="Animation_x338g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.153, -7.158)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wrlts"]
@@ -109,6 +110,54 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_77afj"]
+resource_name = "attack_down"
+length = 0.03333667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_cri8v"]
+resource_name = "attack_side"
+length = 0.03333667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [19]
+}
+
+[sub_resource type="Animation" id="Animation_7ub6x"]
+resource_name = "attack_up"
+length = 0.03333667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
 }
 
 [sub_resource type="Animation" id="Animation_fhn78"]
@@ -291,54 +340,6 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(1, 1.0625), Vector2(1, 1.125)]
 }
 
-[sub_resource type="Animation" id="Animation_77afj"]
-resource_name = "attack_down"
-length = 0.03333667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skin:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [12]
-}
-
-[sub_resource type="Animation" id="Animation_7ub6x"]
-resource_name = "attack_up"
-length = 0.03333667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skin:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [17]
-}
-
-[sub_resource type="Animation" id="Animation_cri8v"]
-resource_name = "attack_side"
-length = 0.03333667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skin:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [19]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c3jn5"]
 _data = {
 &"RESET": SubResource("Animation_1h5i8"),
@@ -360,7 +361,6 @@ height = 14.0
 [node name="Humanoid" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_e3xw2")
-selected_skin = 3
 
 [node name="GroundHitBox" type="CollisionShape2D" parent="."]
 visible = false
@@ -376,15 +376,16 @@ texture = ExtResource("1_x2all")
 position = Vector2(0, -7)
 rotation = 3.1415927
 
+[node name="WeaponAnimation" type="AnimationPlayer" parent="Weapon"]
+root_node = NodePath("../WeaponSkin")
+libraries = {
+&"": SubResource("AnimationLibrary_wrlts")
+}
+
 [node name="WeaponSkin" type="Sprite2D" parent="Weapon"]
 position = Vector2(0.153, -7.158)
 texture = ExtResource("3_77afj")
 offset = Vector2(0, -8.97)
-
-[node name="WeaponAnimation" type="AnimationPlayer" parent="Weapon/WeaponSkin"]
-libraries = {
-&"": SubResource("AnimationLibrary_wrlts")
-}
 
 [node name="Hitbox" type="Area2D" parent="Weapon"]
 script = ExtResource("16_7ub6x")
@@ -394,8 +395,13 @@ position = Vector2(0, -11.64)
 shape = SubResource("CircleShape2D_cri8v")
 debug_color = Color(0.85695416, 0, 0.24118266, 0.41960785)
 
+[node name="FX" type="Sprite2D" parent="Weapon"]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("5_7ub6x")
+hframes = 4
+
 [node name="Skin" type="Sprite2D" parent="."]
-texture = ExtResource("5_xqs57")
+texture = ExtResource("2_8yvsn")
 offset = Vector2(0, -8)
 hframes = 4
 vframes = 7

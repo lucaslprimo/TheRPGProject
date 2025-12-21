@@ -1,4 +1,4 @@
-class_name HurtboxComponent
+class_name Hurtbox
 extends Area2D
 
 @export var healthcp:HealthComponent

@@ -16,4 +16,8 @@ func physics_process(_delta:float):
 	if owner is CharacterBody2D:
 		owner.velocity = movcp.get_velocity_vector_smooth(Vector2.ZERO, owner.velocity, _delta)
 		owner.move_and_slide()
+		
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Attack"):
+		state_machine.stack_state(&"attack")
 	

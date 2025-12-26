@@ -3,5 +3,5 @@ extends Area2D
 
 @export var healthcp:HealthComponent
 
-func take_damage(damage:int, push_force:float, source_position:Vector2):
-	healthcp.apply_damage(damage)
+func take_damage(_damage:int, _push_force:float, _source_position:Vector2):
+	healthcp.apply_damage(_damage)

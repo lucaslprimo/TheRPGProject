@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkah125sti8rj"]
+[gd_scene load_steps=3 format=3 uid="uid://bkah125sti8rj"]
 
-[ext_resource type="PackedScene" uid="uid://c8xs5tiuk8csl" path="res://project/scenes/HumanoidBase.tscn" id="1_hrid0"]
+[ext_resource type="PackedScene" uid="uid://cohfhpylefv2v" path="res://project/scenes/Enemy.tscn" id="1_4wxyy"]
+[ext_resource type="PackedScene" uid="uid://c5slxalqbjlnl" path="res://project/scenes/Player.tscn" id="2_4wxyy"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Humanoid" parent="." instance=ExtResource("1_hrid0")]
-position = Vector2(0, 1)
+[node name="Enemy" parent="." instance=ExtResource("1_4wxyy")]
+selected_skin = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+
+[node name="Player" parent="." instance=ExtResource("2_4wxyy")]
+position = Vector2(-82, 0)

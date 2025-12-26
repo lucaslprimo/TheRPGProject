@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cohfhpylefv2v"]
+
+[ext_resource type="PackedScene" uid="uid://c8xs5tiuk8csl" path="res://project/scenes/HumanoidBase.tscn" id="1_fceif"]
+
+[node name="Enemy" instance=ExtResource("1_fceif")]
+collision_layer = 2048
+
+[node name="Hitbox" parent="Weapon" index="1"]
+collision_layer = 512
+collision_mask = 4
+
+[node name="Hurtbox" parent="." index="5"]
+collision_layer = 256
+collision_mask = 0

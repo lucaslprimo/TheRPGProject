@@ -5,3 +5,6 @@ signal animation_finished()
 
 func play_anim(_name:StringName):
 	pass
+	
+func reset():
+	pass

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5slxalqbjlnl"]
+
+[ext_resource type="PackedScene" uid="uid://c8xs5tiuk8csl" path="res://project/scenes/HumanoidBase.tscn" id="1_gd4xd"]
+[ext_resource type="Script" uid="uid://bo6no0shuxrh3" path="res://project/scripts/humanoids/player/player_input_handler.gd" id="2_qtec2"]
+
+[node name="Player" instance=ExtResource("1_gd4xd")]
+collision_layer = 8
+
+[node name="Hitbox" parent="Weapon" index="1"]
+collision_layer = 2
+collision_mask = 256
+
+[node name="Hurtbox" parent="." index="5"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="StateMachine" parent="." index="6" node_paths=PackedStringArray("input_handler")]
+input_handler = NodePath("../PlayerInputHandler")
+
+[node name="AttackingComponent" parent="." index="7"]
+damage = 20
+
+[node name="PlayerInputHandler" type="Node" parent="." index="10"]
+script = ExtResource("2_qtec2")

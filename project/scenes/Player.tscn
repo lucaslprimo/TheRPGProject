@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c8xs5tiuk8csl" path="res://project/scenes/HumanoidBase.tscn" id="1_gd4xd"]
 [ext_resource type="Script" uid="uid://bo6no0shuxrh3" path="res://project/scripts/humanoids/player/player_input_handler.gd" id="2_qtec2"]
 
-[node name="Player" instance=ExtResource("1_gd4xd")]
+[node name="Player" groups=["players"] instance=ExtResource("1_gd4xd")]
 collision_layer = 8
 
 [node name="Attack1" parent="Weapon/FX_group" index="0"]
@@ -13,6 +13,9 @@ collision_mask = 256
 [node name="Attack2" parent="Weapon/FX_group" index="1"]
 collision_layer = 2
 collision_mask = 256
+
+[node name="Attack3" parent="Weapon/FX_group" index="2"]
+visible = true
 
 [node name="Hurtbox" parent="." index="5"]
 collision_layer = 4
@@ -24,5 +27,6 @@ input_handler = NodePath("../PlayerInputHandler")
 [node name="hurt" parent="StateMachine" index="3"]
 hurt_duration = 0.4
 
-[node name="PlayerInputHandler" type="Node" parent="." index="10"]
+[node name="PlayerInputHandler" type="Node" parent="." index="10" node_paths=PackedStringArray("movcp")]
 script = ExtResource("2_qtec2")
+movcp = NodePath("../MovementComponent")

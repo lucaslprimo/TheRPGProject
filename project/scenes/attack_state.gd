@@ -30,7 +30,7 @@ func _attack_finished():
 	
 func physics_process(_delta:float):
 	if owner is CharacterBody2D:
-		owner.velocity = owner.velocity.move_toward(Vector2.ZERO,_delta * 1000)
+		owner.velocity = owner.velocity.move_toward(Vector2.ZERO,_delta * dash_speed)
 		owner.move_and_slide()
 	
 func _should_attack():
@@ -43,9 +43,8 @@ func _should_attack():
 func play_attack_anim():
 	if owner is CharacterBody2D:
 		owner.velocity = Vector2.ZERO
-		var mouse_pos = owner.get_global_mouse_position()
-		weapon_node.look_at(mouse_pos)
-		owner.velocity = (mouse_pos - owner.global_position).normalized() * 200
+		weapon_node.look_at(state_machine.input_handler.get_target_pos())
+		owner.velocity = (state_machine.input_handler.get_target_pos() - owner.global_position).normalized() * 200
 	
 	state_machine.animator.play_anim(&"attack")
 	state_machine.animator.play_attack_anim(&"attack_" + str(attack))

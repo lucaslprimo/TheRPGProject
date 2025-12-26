@@ -8,6 +8,7 @@ func _should_attack():
 	state_machine.stack_state(&"attack")
 	
 func process(_delta:float):
+	state_machine.input_handler.process()
 	var input_vector = state_machine.input_handler.get_movement_vector()
 	
 	if input_vector.length() > 0:

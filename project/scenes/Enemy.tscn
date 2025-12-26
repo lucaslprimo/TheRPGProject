@@ -1,14 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://cohfhpylefv2v"]
+[gd_scene load_steps=3 format=3 uid="uid://cohfhpylefv2v"]
 
 [ext_resource type="PackedScene" uid="uid://c8xs5tiuk8csl" path="res://project/scenes/HumanoidBase.tscn" id="1_fceif"]
+[ext_resource type="Script" uid="uid://cr5xyqinmscmn" path="res://project/scripts/components/enemy_ai_component.gd" id="2_hgxob"]
 
 [node name="Enemy" instance=ExtResource("1_fceif")]
 collision_layer = 2048
 
-[node name="Hitbox" parent="Weapon" index="1"]
+[node name="Attack1" parent="Weapon/FX_group" index="0"]
 collision_layer = 512
+collision_mask = 4
+
+[node name="Attack2" parent="Weapon/FX_group" index="1"]
+collision_layer = 512
+collision_mask = 4
+
+[node name="Attack3" parent="Weapon/FX_group" index="2"]
+collision_layer = 1024
 collision_mask = 4
 
 [node name="Hurtbox" parent="." index="5"]
 collision_layer = 256
 collision_mask = 0
+
+[node name="StateMachine" parent="." index="6" node_paths=PackedStringArray("input_handler")]
+input_handler = NodePath("../EnemyAIComponenent")
+
+[node name="AttackingComponent" parent="." index="7"]
+cooldown = 2.0
+
+[node name="MovementComponent" parent="." index="8"]
+max_speed = 100
+acceleration = 1000
+
+[node name="EnemyAIComponenent" type="Node" parent="." index="11"]
+script = ExtResource("2_hgxob")
+attack_distance = 100.0
+metadata/_custom_type_script = "uid://cr5xyqinmscmn"

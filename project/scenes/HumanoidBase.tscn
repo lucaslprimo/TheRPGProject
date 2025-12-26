@@ -1255,6 +1255,7 @@ monitorable = false
 script = ExtResource("16_7ub6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/FX_group/Attack1"]
+visible = false
 position = Vector2(13, 0)
 shape = SubResource("CapsuleShape2D_wrlts")
 debug_color = Color(0.85695416, 0, 0.24118266, 0.41960785)
@@ -1274,6 +1275,7 @@ monitorable = false
 script = ExtResource("16_7ub6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/FX_group/Attack2"]
+visible = false
 position = Vector2(18.000004, -1.9073486e-06)
 rotation = 0.7019955
 shape = SubResource("RectangleShape2D_euuc7")
@@ -1289,11 +1291,13 @@ hframes = 4
 frame = 1
 
 [node name="Attack3" type="Area2D" parent="Weapon/FX_group"]
+visible = false
 monitoring = false
 monitorable = false
 script = ExtResource("16_7ub6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/FX_group/Attack3"]
+visible = false
 position = Vector2(18.000004, -1.9073486e-06)
 rotation = -1.0810201
 shape = SubResource("RectangleShape2D_euuc7")
@@ -1348,6 +1352,7 @@ script = ExtResource("6_mgefr")
 [node name="attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("atkcp", "weapon_node")]
 script = ExtResource("16_cri8v")
 atkcp = NodePath("../../AttackingComponent")
+dash_speed = 20
 weapon_node = NodePath("../../Weapon/FX_group")
 
 [node name="hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
@@ -1362,7 +1367,6 @@ sprite = NodePath("../../Skin")
 [node name="AttackingComponent" type="Node" parent="." node_paths=PackedStringArray("hitbox1", "hitbox2", "hitbox3")]
 script = ExtResource("6_8xpxb")
 cooldown = 0.2
-damage = 50
 hitbox1 = NodePath("../Weapon/FX_group/Attack1")
 hitbox2 = NodePath("../Weapon/FX_group/Attack2")
 hitbox3 = NodePath("../Weapon/FX_group/Attack3")

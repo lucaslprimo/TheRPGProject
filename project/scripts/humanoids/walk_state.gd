@@ -4,6 +4,7 @@ func enter():
 	state_machine.input_handler.melee_attack.connect(_should_attack)
 	
 func process(_delta:float):
+	state_machine.input_handler.process()
 	state_machine.animator.play_anim(&"walk")
 	check_input_vector()
 	

@@ -1,5 +1,7 @@
 extends InputHandler
 
+@export var movcp:MovementComponent
+
 enum PlayerSlot{
 	Player_1,
 	Player_2,
@@ -16,3 +18,6 @@ func _input(event: InputEvent) -> void:
 	#Verifiy if this is my character with the information saved somewere
 	if event.is_action_pressed("Attack"):
 		melee_attack.emit()
+		
+func get_target_pos() -> Vector2:
+	return movcp.direction

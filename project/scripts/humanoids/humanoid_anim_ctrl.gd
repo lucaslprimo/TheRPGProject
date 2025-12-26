@@ -51,4 +51,3 @@ func get_string_by_direction(direction:Vector2) -> StringName:
 	
 	
 	
-		

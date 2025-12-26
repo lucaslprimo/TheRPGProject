@@ -43,6 +43,10 @@ folder_colors={
 "res://template/theme/": "pink"
 }
 
+[global_group]
+
+players=""
+
 [input]
 
 move_left={

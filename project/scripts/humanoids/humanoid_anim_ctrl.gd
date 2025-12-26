@@ -14,18 +14,20 @@ func _anim_finished(_animName):
 	animation_finished.emit()
 	
 func reset():
+	weapon_animator.stop()
 	animator.stop()
 
 func play_anim(_name:StringName):
 	var anim_name = _name + get_string_by_direction(movcp.direction)
 
-	if weapon_animator.has_animation(_name):
-		weapon_animator.play(_name)
-	
 	if animator.has_animation(_name):
 		animator.play(_name)
 	else:
 		animator.play(anim_name)
+
+func play_attack_anim(_name:StringName):
+	if weapon_animator.has_animation(_name):
+		weapon_animator.play(_name)
 
 func get_string_by_direction(direction:Vector2) -> StringName:
 	if direction.y > 0:

@@ -6,7 +6,6 @@
 [node name="Main" type="Node2D"]
 
 [node name="Enemy" parent="." instance=ExtResource("1_4wxyy")]
-selected_skin = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)

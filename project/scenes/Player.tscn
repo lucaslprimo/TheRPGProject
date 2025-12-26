@@ -6,7 +6,11 @@
 [node name="Player" instance=ExtResource("1_gd4xd")]
 collision_layer = 8
 
-[node name="Hitbox" parent="Weapon" index="1"]
+[node name="Attack1" parent="Weapon/FX_group" index="0"]
+collision_layer = 2
+collision_mask = 256
+
+[node name="Attack2" parent="Weapon/FX_group" index="1"]
 collision_layer = 2
 collision_mask = 256
 
@@ -17,8 +21,8 @@ collision_mask = 0
 [node name="StateMachine" parent="." index="6" node_paths=PackedStringArray("input_handler")]
 input_handler = NodePath("../PlayerInputHandler")
 
-[node name="AttackingComponent" parent="." index="7"]
-damage = 20
+[node name="hurt" parent="StateMachine" index="3"]
+hurt_duration = 0.4
 
 [node name="PlayerInputHandler" type="Node" parent="." index="10"]
 script = ExtResource("2_qtec2")

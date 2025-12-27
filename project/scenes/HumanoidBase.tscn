@@ -1,22 +1,22 @@
 [gd_scene load_steps=46 format=3 uid="uid://c8xs5tiuk8csl"]
 
 [ext_resource type="Script" uid="uid://dkn878huqsmrg" path="res://project/scripts/humanoids/humanoid_base.gd" id="1_e3xw2"]
-[ext_resource type="Texture2D" uid="uid://baifyngifhbto" path="res://project/assets/Characters/Shadow.png" id="1_x2all"]
-[ext_resource type="Texture2D" uid="uid://3w4547733bjn" path="res://project/assets/Characters/Hunter/SpriteSheet.png" id="2_8yvsn"]
+[ext_resource type="Texture2D" uid="uid://bj1tn7or31ghj" path="res://project/assets/Characters/Shadow.png" id="1_x2all"]
+[ext_resource type="Texture2D" uid="uid://byreayk5iby2y" path="res://project/assets/Characters/Hunter/SpriteSheet.png" id="2_8yvsn"]
 [ext_resource type="Texture2D" uid="uid://bbneq63axborx" path="res://project/assets/Weapons/Katana/Sprite.png" id="3_7ub6x"]
 [ext_resource type="Script" uid="uid://cb8nmj1tedwys" path="res://project/scripts/components/hurtbox_component.gd" id="3_8yvsn"]
 [ext_resource type="Script" uid="uid://c0mwlx4wif2vh" path="res://project/scripts/humanoids/skin_manager.gd" id="3_x3p1x"]
 [ext_resource type="Script" uid="uid://c1c4on1mymyim" path="res://project/scripts/utils/state_machine/state_machine.gd" id="4_kqmbg"]
-[ext_resource type="Texture2D" uid="uid://bcvgip3itvvnu" path="res://project/assets/fx/SlashCurved.png" id="5_7ub6x"]
+[ext_resource type="Texture2D" uid="uid://tshqx1lt4pef" path="res://project/assets/fx/SlashCurved.png" id="5_7ub6x"]
 [ext_resource type="Script" uid="uid://c6y1t1dbmj457" path="res://project/scripts/humanoids/idle_state.gd" id="5_mgefr"]
-[ext_resource type="Texture2D" uid="uid://c3ktyancgr6ov" path="res://project/assets/Characters/Knight/SpriteSheet.png" id="5_xqs57"]
+[ext_resource type="Texture2D" uid="uid://884bsfawq7m0" path="res://project/assets/Characters/Knight/SpriteSheet.png" id="5_xqs57"]
 [ext_resource type="Script" uid="uid://bxw57tbquty01" path="res://project/scripts/components/attacking_component.gd" id="6_8xpxb"]
-[ext_resource type="Texture2D" uid="uid://0h2qjw81em80" path="res://project/assets/Characters/Inspector/SpriteSheet.png" id="6_a3lht"]
+[ext_resource type="Texture2D" uid="uid://bttwc2k7mne88" path="res://project/assets/Characters/Inspector/SpriteSheet.png" id="6_a3lht"]
 [ext_resource type="Script" uid="uid://cgq5xhooviis4" path="res://project/scripts/humanoids/walk_state.gd" id="6_mgefr"]
 [ext_resource type="Script" uid="uid://dypjgkp7aga7e" path="res://project/scripts/humanoids/humanoid_anim_ctrl.gd" id="7_c6dlt"]
-[ext_resource type="Texture2D" uid="uid://qs4hbvn742bo" path="res://project/assets/fx/SlashCircle.png" id="7_hmw2o"]
+[ext_resource type="Texture2D" uid="uid://cihbp1dlkktwl" path="res://project/assets/fx/SlashCircle.png" id="7_hmw2o"]
 [ext_resource type="Script" uid="uid://c57fo620t84ns" path="res://project/scripts/components/movement_component.gd" id="8_wdesk"]
-[ext_resource type="Texture2D" uid="uid://ct8ukvbjjskt8" path="res://project/assets/Characters/LionYellow/SpriteSheet.png" id="8_y1gv5"]
+[ext_resource type="Texture2D" uid="uid://dh12ajp7an34k" path="res://project/assets/Characters/LionYellow/SpriteSheet.png" id="8_y1gv5"]
 [ext_resource type="Script" uid="uid://8qf5fiyl4yu3" path="res://project/scripts/components/health_component.gd" id="14_a3lht"]
 [ext_resource type="Script" uid="uid://dnmf7mwip03pk" path="res://project/scripts/components/hitbox_component.gd" id="16_7ub6x"]
 [ext_resource type="Script" uid="uid://12ilxwm2ct3k" path="res://project/scripts/humanoids/attack_state.gd" id="16_cri8v"]
@@ -1379,8 +1379,8 @@ metadata/_custom_type_script = "uid://bxw57tbquty01"
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("8_wdesk")
-max_speed = 200
-acceleration = 1500
+max_speed = 100
+acceleration = 100
 metadata/_custom_type_script = "uid://c57fo620t84ns"
 
 [node name="HealthComponent" type="Node" parent="."]

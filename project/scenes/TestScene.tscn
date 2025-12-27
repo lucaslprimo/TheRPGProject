@@ -12,5 +12,5 @@ zoom = Vector2(5, 5)
 position = Vector2(-82, 0)
 
 [node name="Enemy" parent="." instance=ExtResource("2_74fhv")]
-position = Vector2(5, -7)
-selected_skin = 3
+position = Vector2(26, 0)
+selected_skin = 4

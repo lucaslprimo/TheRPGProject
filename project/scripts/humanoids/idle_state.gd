@@ -9,6 +9,7 @@ func _should_attack():
 	
 func process(_delta:float):
 	state_machine.input_handler.process()
+	state_machine.animator.play_anim(&"idle")
 	var input_vector = state_machine.input_handler.get_movement_vector()
 	
 	if input_vector.length() > 0:

@@ -12,7 +12,7 @@ func get_velocity_vector_smooth(move_vector:Vector2, current_velocity:Vector2, d
 	if(move_vector != Vector2.ZERO):
 		direction = move_vector.normalized()
 	
-	target_velocity = move_vector * max_speed
+	target_velocity = move_vector.normalized() * max_speed
 	
 	if target_velocity == Vector2.ZERO:
 		return current_velocity.move_toward(target_velocity, desceleration * delta)

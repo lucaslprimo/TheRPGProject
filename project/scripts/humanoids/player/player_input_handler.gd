@@ -29,7 +29,6 @@ func get_movement_vector() -> Vector2:
 	return Vector2.ZERO
 
 func process():
-	print(player.global_position.distance_to(player.get_global_mouse_position()))
 	if player.global_position.distance_to(move_to) < 10:
 		_should_move = false
 

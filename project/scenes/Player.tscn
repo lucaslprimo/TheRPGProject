@@ -18,9 +18,6 @@ collision_mask = 256
 collision_layer = 2
 collision_mask = 256
 
-[node name="Attack3" parent="Weapon/FX_group" index="2"]
-visible = true
-
 [node name="Hurtbox" parent="." index="5"]
 collision_layer = 4
 collision_mask = 0
@@ -31,6 +28,7 @@ input_handler = NodePath("../PlayerInputHandler")
 [node name="hurt" parent="StateMachine" index="3"]
 hurt_duration = 0.4
 
-[node name="PlayerInputHandler" type="Node" parent="." index="10" node_paths=PackedStringArray("movcp")]
+[node name="PlayerInputHandler" type="Node" parent="." index="10" node_paths=PackedStringArray("movcp", "weapon_node")]
 script = ExtResource("2_qtec2")
 movcp = NodePath("../MovementComponent")
+weapon_node = NodePath("../Weapon")

@@ -43,3 +43,9 @@ func get_target_pos() -> Vector2:
 		return target.global_position
 	
 	return Vector2.ZERO
+	
+func get_target_dir() -> Vector2:
+	if target:
+		return target.global_position
+	
+	return Vector2.ZERO

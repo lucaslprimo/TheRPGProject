@@ -11,3 +11,6 @@ func get_movement_vector() -> Vector2:
 
 func get_target_pos() -> Vector2:
 	return Vector2.ZERO
+	
+func get_target_dir() -> Vector2:
+	return Vector2.ZERO

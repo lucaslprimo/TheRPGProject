@@ -7,6 +7,7 @@ var current_state:State
 @export var input_handler:InputHandler = InputHandler.new()
 @export var movcp:MovementComponent
 @export var healthcp:HealthComponent
+@export var debug:bool = false
 
 var last_state:StringName = ""
 var is_stacked:bool = false
@@ -40,7 +41,8 @@ func change_state(new_state:StringName):
 	current_state = states[new_state]	
 	current_state.enter()
 	
-	print("State changed to ", current_state.name)
+	if debug:
+		print("State changed to ", current_state.name)
 	
 func final_state(new_state:StringName):
 	if not current_state:
@@ -55,7 +57,8 @@ func final_state(new_state:StringName):
 	current_state = states[new_state]
 	current_state.enter()
 	
-	print("State override to ", current_state.name)
+	if debug:
+		print("State override to ", current_state.name)
 	
 func stack_state(new_state:StringName):
 	if not current_state:
@@ -74,7 +77,9 @@ func stack_state(new_state:StringName):
 	current_state = states[new_state]
 	
 	current_state.enter()
-	print("State stacked: ", current_state.name)
+	
+	if debug:
+		print("State stacked: ", current_state.name)
 	
 func pop_state():
 	if not current_state:
@@ -88,7 +93,9 @@ func pop_state():
 	current_state.exit()
 	current_state = states[last_state]
 	current_state.enter()
-	print("State poped to ", current_state.name)
+	
+	if debug:
+		print("State poped to ", current_state.name)
 
 func _process(_delta: float):
 	current_state.process(_delta)

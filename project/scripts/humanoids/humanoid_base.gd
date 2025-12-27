@@ -17,5 +17,4 @@ extends CharacterBody2D
 			selected_skin = value
 
 func _ready():
-	print(selected_skin)
 	skin.update_skin(selected_skin)

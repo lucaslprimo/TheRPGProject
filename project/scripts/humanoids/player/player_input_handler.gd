@@ -1,6 +1,7 @@
 extends InputHandler
 
 @export var movcp:MovementComponent
+@export var weapon_node:Node2D
 
 enum PlayerSlot{
 	Player_1,
@@ -20,6 +21,14 @@ func _input(event: InputEvent) -> void:
 		melee_attack.emit()
 		
 func get_target_pos() -> Vector2:
+	if owner is CharacterBody2D:
+		#return weapon_node.global_position + movcp.direction * 30
+		return owner.get_global_mouse_position()
+		
+	
+	return Vector2.ZERO
+	
+func get_target_dir() -> Vector2:
 	if owner is CharacterBody2D:
 		return movcp.direction
 	

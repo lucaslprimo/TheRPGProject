@@ -38,5 +38,5 @@ acceleration = 1000
 
 [node name="EnemyAIComponenent" type="Node" parent="." index="11"]
 script = ExtResource("2_hgxob")
-attack_distance = 100.0
+attack_distance = 30.0
 metadata/_custom_type_script = "uid://cr5xyqinmscmn"

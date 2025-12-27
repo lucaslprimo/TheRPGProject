@@ -18,7 +18,7 @@ func reset():
 	animator.stop()
 
 func play_anim(_name:StringName):
-	var anim_name = _name + get_sprite_suffix_by_direction(input_hanlder.get_target_pos())
+	var anim_name = _name + get_sprite_suffix_by_direction(input_hanlder.get_target_dir())
 
 	if animator.has_animation(_name):
 		animator.play(_name)
@@ -56,7 +56,6 @@ func get_sprite_suffix_by_direction(direction: Vector2) -> StringName:
    
 	var angle_rad = dir.angle()
 	var angle_deg = rad_to_deg(angle_rad)
-  
 	
 	# Normaliza para 0-360
 	if angle_deg < 0:

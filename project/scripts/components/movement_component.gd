@@ -1,7 +1,7 @@
 class_name MovementComponent extends Node
 
-@export var max_speed:int = 300
-@export var acceleration:int = 1000
+@export var max_speed:int = 100
+@export var acceleration:int = 500
 @export var desceleration:int = 500
 
 var target_velocity:Vector2 = Vector2.ZERO

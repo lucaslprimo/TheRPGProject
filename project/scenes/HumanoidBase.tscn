@@ -1379,8 +1379,6 @@ metadata/_custom_type_script = "uid://bxw57tbquty01"
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("8_wdesk")
-max_speed = 100
-acceleration = 100
 metadata/_custom_type_script = "uid://c57fo620t84ns"
 
 [node name="HealthComponent" type="Node" parent="."]

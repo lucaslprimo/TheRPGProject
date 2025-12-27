@@ -2,42 +2,59 @@ class_name AttackingComponent extends Node
 
 @export var cooldown:float = 4
 @export var damage:int = 20
-@export var hitbox1:HitBox
-@export var hitbox2:HitBox
-@export var hitbox3:HitBox
+@export var hitbox_list:Array[HitBox]
 @export var combo_time:float = 5
 
+var combo_counter:int = 0
 var cooldown_timer: Timer
 var combo_timer: Timer
-
-var attack_state:AttackState = AttackState.IDLE
+var attack_queue:int = 0
+var click_counter = 0
 
 signal hit(body:Node2D, damage:int)
 
-enum AttackState{
-	IDLE, ATTACK1, ATTACK2, COOLDOWN
-}
-
 func _ready() -> void:
-	hitbox1.on_hit.connect(_process_attack)
-	hitbox2.on_hit.connect(_process_attack)
-	hitbox3.on_hit.connect(_process_attack)
+	
+	for hitbox in hitbox_list:
+		hitbox.on_hit.connect(_process_attack)
+
 	cooldown_timer = Timer.new()
 	combo_timer = Timer.new()
 	add_child(cooldown_timer)
 	add_child(combo_timer)
-	cooldown_timer.timeout.connect(func(): attack_state = AttackState.IDLE)
 	cooldown_timer.wait_time = cooldown
 	cooldown_timer.one_shot = true
 	
 	combo_timer.wait_time = combo_time
 	combo_timer.one_shot = true
 	
-func attack():
-	attack_state = AttackState.ATTACK1
+func start_attack():
+	click_counter = 1
+	combo_counter = 0
 	cooldown_timer.start()
 	combo_timer.start()
 	
+func combo_attack():
+	if combo_timer.time_left > 0 and click_counter < hitbox_list.size():
+		combo_timer.start()
+		attack_queue+=1
+		click_counter+=1
+		
+func has_attack_on_queue() -> bool:
+	if attack_queue > 0:
+		attack_queue-=1
+		combo_counter+=1
+		return true
+	else:
+		return false
+		
+func stop():
+	attack_queue = 0
+	combo_timer.stop()
+	for hitbox in hitbox_list:
+		hitbox.monitoring = false
+		hitbox.get_node("FX").visible = false
+		
 func _process_attack(body:Hurtbox):
 	body.take_damage(damage, damage, owner.global_position)
 	hit.emit(body, damage)

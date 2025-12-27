@@ -39,4 +39,7 @@ func get_movement_vector() -> Vector2:
 	else: return Vector2.ZERO
 	
 func get_target_pos() -> Vector2:
-	return target.global_position
+	if target:
+		return target.global_position
+	
+	return Vector2.ZERO

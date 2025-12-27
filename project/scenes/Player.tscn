@@ -5,6 +5,10 @@
 
 [node name="Player" groups=["players"] instance=ExtResource("1_gd4xd")]
 collision_layer = 8
+collision_mask = 2049
+
+[node name="AnimCtrl" parent="." index="0" node_paths=PackedStringArray("input_hanlder")]
+input_hanlder = NodePath("../PlayerInputHandler")
 
 [node name="Attack1" parent="Weapon/FX_group" index="0"]
 collision_layer = 2

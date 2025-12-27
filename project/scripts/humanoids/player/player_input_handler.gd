@@ -20,4 +20,7 @@ func _input(event: InputEvent) -> void:
 		melee_attack.emit()
 		
 func get_target_pos() -> Vector2:
-	return movcp.direction
+	if owner is CharacterBody2D:
+		return movcp.direction
+	
+	return Vector2.ZERO

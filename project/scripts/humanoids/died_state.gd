@@ -8,5 +8,5 @@ func enter():
 
 func physics_process(_delta:float):
 	if owner is CharacterBody2D:
-		owner.velocity = owner.velocity.move_toward(Vector2.ZERO,_delta * 300)
+		owner.velocity = state_machine.movcp.get_velocity_vector_smooth(Vector2.ZERO, owner.velocity, _delta)
 		owner.move_and_slide()

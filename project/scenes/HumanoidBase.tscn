@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://dkn878huqsmrg" path="res://project/scripts/humanoids/humanoid_base.gd" id="1_e3xw2"]
 [ext_resource type="Texture2D" uid="uid://bj1tn7or31ghj" path="res://project/assets/Characters/Shadow.png" id="1_x2all"]
 [ext_resource type="Texture2D" uid="uid://byreayk5iby2y" path="res://project/assets/Characters/Hunter/SpriteSheet.png" id="2_8yvsn"]
-[ext_resource type="Texture2D" uid="uid://bbneq63axborx" path="res://project/assets/Weapons/Katana/Sprite.png" id="3_7ub6x"]
 [ext_resource type="Script" uid="uid://cb8nmj1tedwys" path="res://project/scripts/components/hurtbox_component.gd" id="3_8yvsn"]
 [ext_resource type="Script" uid="uid://c0mwlx4wif2vh" path="res://project/scripts/humanoids/skin_manager.gd" id="3_x3p1x"]
+[ext_resource type="Texture2D" uid="uid://b222oj173exhw" path="res://project/assets/Weapons/Bone/Sprite.png" id="4_hmw2o"]
 [ext_resource type="Script" uid="uid://c1c4on1mymyim" path="res://project/scripts/utils/state_machine/state_machine.gd" id="4_kqmbg"]
 [ext_resource type="Texture2D" uid="uid://tshqx1lt4pef" path="res://project/assets/fx/SlashCurved.png" id="5_7ub6x"]
 [ext_resource type="Script" uid="uid://c6y1t1dbmj457" path="res://project/scripts/humanoids/idle_state.gd" id="5_mgefr"]
@@ -128,7 +128,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.06666667, 0.13333334, 0.20000002, 0.26666668),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [1, 2, 3, 3]
+"values": [0, 1, 2, 3]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1242,7 +1242,7 @@ z_index = -10
 position = Vector2(-9, 7.000001)
 rotation = 1.0105456
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_7ub6x")
+texture = ExtResource("4_hmw2o")
 offset = Vector2(-0.18950653, -7.864891)
 
 [node name="WeaponAnimation" type="AnimationPlayer" parent="Weapon"]
@@ -1259,7 +1259,6 @@ monitorable = false
 script = ExtResource("16_7ub6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/FX_group/Attack1"]
-visible = false
 position = Vector2(14.999999, 5.9999986)
 shape = SubResource("CapsuleShape2D_wrlts")
 debug_color = Color(0.85695416, 0, 0.24118266, 0.41960785)

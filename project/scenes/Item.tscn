@@ -6,10 +6,12 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wrs5u"]
 
-[node name="Item" type="Node2D"]
+[node name="Item" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_63kl7")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -20
 rotation = -1.3554099
 texture = ExtResource("2_eouyc")
 

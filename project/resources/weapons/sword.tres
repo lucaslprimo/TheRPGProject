@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://46bkny7e56tx"]
+
+[ext_resource type="Script" uid="uid://by0h3dfosnska" path="res://project/scripts/resources/weapon_data.gd" id="1_abq03"]
+[ext_resource type="Texture2D" uid="uid://bwaoppw1x55ae" path="res://project/assets/Weapons/Sword2/Sprite.png" id="2_vvxse"]
+
+[resource]
+script = ExtResource("1_abq03")
+damage = 20
+scale_modifier = 0.5
+sprite = ExtResource("2_vvxse")
+name = "Normal Sword"
+description = "This is just a regular sword"
+metadata/_custom_type_script = "uid://by0h3dfosnska"

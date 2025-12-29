@@ -7,5 +7,5 @@ func info() -> String:
 func get_item():
 	return owner
 	
-func pickup():
-	get_tree().free()
+func delete():
+	owner.queue_free()

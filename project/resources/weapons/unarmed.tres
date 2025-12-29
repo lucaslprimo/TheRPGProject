@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://dwqm127y4slnj"]
+
+[ext_resource type="Script" uid="uid://by0h3dfosnska" path="res://project/scripts/resources/weapon_data.gd" id="1_1wstk"]
+
+[resource]
+script = ExtResource("1_1wstk")
+damage = 5
+kockback_force = 20
+name = "unarmed"
+description = "bar hands"
+metadata/_custom_type_script = "uid://by0h3dfosnska"

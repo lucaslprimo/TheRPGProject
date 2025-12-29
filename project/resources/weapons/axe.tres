@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://bd18jrsp3nwjq"]
+
+[ext_resource type="Script" uid="uid://by0h3dfosnska" path="res://project/scripts/resources/weapon_data.gd" id="1_x40xu"]
+[ext_resource type="Texture2D" uid="uid://b8ibu0jnhgoni" path="res://project/assets/Weapons/Axe/Sprite.png" id="2_x40xu"]
+
+[resource]
+script = ExtResource("1_x40xu")
+damage = 20
+atk_speed = 0.5
+flip_v = true
+scale_modifier = 1.5
+kockback_force = 50
+sprite = ExtResource("2_x40xu")
+name = "Normal Axe"
+description = "This is just a regular axe"
+metadata/_custom_type_script = "uid://by0h3dfosnska"

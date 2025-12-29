@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkah125sti8rj"]
+[gd_scene load_steps=6 format=3 uid="uid://bkah125sti8rj"]
 
 [ext_resource type="PackedScene" uid="uid://c5slxalqbjlnl" path="res://project/scenes/Player.tscn" id="2_4wxyy"]
 [ext_resource type="PackedScene" uid="uid://cegip78q21h5u" path="res://project/scenes/Item.tscn" id="2_74fhv"]
+[ext_resource type="Resource" uid="uid://cv6xwugu4qccm" path="res://project/resources/weapons/hammer.tres" id="3_74fhv"]
+[ext_resource type="Resource" uid="uid://bd18jrsp3nwjq" path="res://project/resources/weapons/axe.tres" id="3_sucae"]
+[ext_resource type="Resource" uid="uid://46bkny7e56tx" path="res://project/resources/weapons/sword.tres" id="4_vbvdg"]
 
 [node name="Main" type="Node2D"]
 
@@ -13,3 +16,12 @@ position = Vector2(-82, 0)
 
 [node name="Item" parent="." instance=ExtResource("2_74fhv")]
 position = Vector2(55, -2)
+data = ExtResource("3_sucae")
+
+[node name="Item2" parent="." instance=ExtResource("2_74fhv")]
+position = Vector2(62, 5)
+data = ExtResource("4_vbvdg")
+
+[node name="Item3" parent="." instance=ExtResource("2_74fhv")]
+position = Vector2(-19, 43)
+data = ExtResource("3_74fhv")

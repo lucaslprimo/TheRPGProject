@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="XP" load_steps=2 format=3 uid="uid://cwc42fuitpicn"]
-
-[ext_resource type="Script" uid="uid://lgwq2sk8h88y" path="res://project/scripts/stats/xp.gd" id="1_h53td"]
-
-[resource]
-script = ExtResource("1_h53td")
-metadata/_custom_type_script = "uid://lgwq2sk8h88y"

@@ -1259,6 +1259,7 @@ monitorable = false
 script = ExtResource("16_7ub6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/FX_group/Attack1"]
+visible = false
 position = Vector2(14.999999, 5.9999986)
 shape = SubResource("CapsuleShape2D_wrlts")
 debug_color = Color(0.85695416, 0, 0.24118266, 0.41960785)

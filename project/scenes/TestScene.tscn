@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkah125sti8rj"]
 
 [ext_resource type="PackedScene" uid="uid://c5slxalqbjlnl" path="res://project/scenes/Player.tscn" id="2_4wxyy"]
-[ext_resource type="PackedScene" uid="uid://cohfhpylefv2v" path="res://project/scenes/Enemy.tscn" id="2_74fhv"]
+[ext_resource type="PackedScene" uid="uid://cegip78q21h5u" path="res://project/scenes/Item.tscn" id="2_74fhv"]
 
 [node name="Main" type="Node2D"]
 
@@ -11,26 +11,5 @@ zoom = Vector2(5, 5)
 [node name="Player" parent="." instance=ExtResource("2_4wxyy")]
 position = Vector2(-82, 0)
 
-[node name="Enemy" parent="." instance=ExtResource("2_74fhv")]
-position = Vector2(30, -3)
-selected_skin = 3
-
-[node name="Enemy2" parent="." instance=ExtResource("2_74fhv")]
-position = Vector2(-19, 5)
-selected_skin = 2
-
-[node name="Enemy3" parent="." instance=ExtResource("2_74fhv")]
-position = Vector2(47, -31)
-selected_skin = 2
-
-[node name="Enemy4" parent="." instance=ExtResource("2_74fhv")]
-position = Vector2(32, 39)
-selected_skin = 2
-
-[node name="Enemy5" parent="." instance=ExtResource("2_74fhv")]
-position = Vector2(109, -10)
-selected_skin = 2
-
-[node name="Enemy6" parent="." instance=ExtResource("2_74fhv")]
-position = Vector2(-19, -41)
-selected_skin = 4
+[node name="Item" parent="." instance=ExtResource("2_74fhv")]
+position = Vector2(55, -2)

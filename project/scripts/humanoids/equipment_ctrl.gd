@@ -9,7 +9,6 @@ extends Node
 @export var equiped_weapon:WeaponData
 @export var weapon_audio_player:AudioStreamPlayer2D
 @export var weapon_hit_player:AudioStreamPlayer2D
-@export var hurtbox:Hurtbox
 @export var weapon_animation:AnimationPlayer
 
 var can_pickup:bool = false
@@ -50,7 +49,6 @@ func equip_new_weapon(weapon:WeaponData):
 	equiped_weapon = weapon
 	atkcp.damage = weapon.damage
 	atkcp.kockback_force = weapon.kockback_force
-	hurtbox.particles.amount = weapon.damage
 	weapon_animation.speed_scale = weapon.atk_speed
 	weapon_skin.texture = weapon.sprite
 	weapon_skin.flip_v = weapon.flip_v

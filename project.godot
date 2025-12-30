@@ -20,6 +20,10 @@ config/icon="res://template/icon.png"
 
 buses/default_bus_layout="res://template/default_bus_layout.tres"
 
+[autoload]
+
+cameraShake="*res://project/scripts/components/camera_shake.gd"
+
 [display]
 
 window/size/viewport_width=1280

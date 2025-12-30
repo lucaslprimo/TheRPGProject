@@ -2,8 +2,11 @@ class_name AttackingComponent extends Node
 
 @export var cooldown:float = 4
 @export var damage:int = 20
+@export var kockback_force:int = 20
 @export var hitbox_list:Array[HitBox]
 @export var combo_time:float = 5
+@export var weapon_sound_player:AudioStreamPlayer2D
+@export var blood_particles:CPUParticles2D
 
 var combo_counter:int = 0
 var cooldown_timer: Timer
@@ -56,11 +59,16 @@ func stop():
 		hitbox.get_node("FX").visible = false
 		
 func _process_attack(body:Hurtbox):
-	body.take_damage(damage, damage, owner.global_position)
+	body.take_damage(damage, kockback_force, owner.global_position)
 	hit.emit(body, damage)
+	play_hit_sound()
 	
 func is_on_cooldown() -> bool:
 	return cooldown_timer.time_left > 0
+	
+func play_hit_sound():
+	weapon_sound_player.pitch_scale = randf_range(0.8, 1.2)
+	weapon_sound_player.play()
 	
 	
 	

@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://bd18jrsp3nwjq"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://bd18jrsp3nwjq"]
 
 [ext_resource type="Script" uid="uid://by0h3dfosnska" path="res://project/scripts/resources/weapon_data.gd" id="1_x40xu"]
 [ext_resource type="Texture2D" uid="uid://b8ibu0jnhgoni" path="res://project/assets/Weapons/Axe/Sprite.png" id="2_x40xu"]
+[ext_resource type="AudioStream" uid="uid://cgat3dairvdtf" path="res://project/assets/audio/sfx/Hit & Impact/Impact4.wav" id="3_al0kc"]
+[ext_resource type="AudioStream" uid="uid://sjb6lbgdheq2" path="res://project/assets/audio/sfx/Whoosh & Slash/Slash5.wav" id="3_qm08b"]
 
 [resource]
 script = ExtResource("1_x40xu")
@@ -10,6 +12,8 @@ atk_speed = 0.5
 flip_v = true
 scale_modifier = 1.5
 kockback_force = 50
+weapon_sound = ExtResource("3_qm08b")
+weapon_hit_sound = ExtResource("3_al0kc")
 sprite = ExtResource("2_x40xu")
 name = "Normal Axe"
 description = "This is just a regular axe"

@@ -6,6 +6,7 @@ extends AnimController
 @export var skin_sprite:Sprite2D
 @export var weapon_node:Node2D
 @export var input_hanlder:InputHandler = InputHandler.new()
+@export var weapon_sound_player:AudioStreamPlayer2D
 
 func _ready() -> void:
 	weapon_animator.animation_finished.connect(_anim_finished)
@@ -28,6 +29,11 @@ func play_anim(_name:StringName):
 func play_attack_anim(_name:StringName):
 	if weapon_animator.has_animation(_name):
 		weapon_animator.play(_name)
+		play_sound()
+
+func play_sound():
+	weapon_sound_player.pitch_scale = randf_range(0.8, 1.2)
+	weapon_sound_player.play()
 
 func get_string_by_direction(direction:Vector2) -> StringName:
 	if direction.y > 0:

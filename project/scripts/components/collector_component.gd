@@ -18,7 +18,9 @@ func _on_area_entered(_pickup:Area2D):
 			allow_pickup.emit(pickups[0].info())
 
 func _on_area_exited(_pickup:Area2D):
-	pickups.remove_at(pickups.find(_pickup))
+	if pickups.find(_pickup) != -1:
+		pickups.remove_at(pickups.find(_pickup))
+		
 	if pickups.is_empty():
 		deny_pickup.emit()
 	else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c8xs5tiuk8csl"]
+[gd_scene load_steps=51 format=3 uid="uid://c8xs5tiuk8csl"]
 
 [ext_resource type="Script" uid="uid://dkn878huqsmrg" path="res://project/scripts/humanoids/humanoid_base.gd" id="1_e3xw2"]
 [ext_resource type="Texture2D" uid="uid://baifyngifhbto" path="res://project/assets/Characters/Shadow.png" id="1_x2all"]
@@ -23,6 +23,10 @@
 [ext_resource type="Script" uid="uid://dkwunag7epdha" path="res://project/scripts/humanoids/hurt_state.gd" id="17_x338g"]
 [ext_resource type="Script" uid="uid://mikeum0murty" path="res://project/scripts/humanoids/died_state.gd" id="18_wrlts"]
 [ext_resource type="Script" uid="uid://bjxej4h04bigw" path="res://project/scripts/components/knockback_compoment.gd" id="22_oyqbi"]
+[ext_resource type="Script" uid="uid://php4n6ogkcsg" path="res://project/scripts/humanoids/equipment_ctrl.gd" id="24_6cdaj"]
+[ext_resource type="PackedScene" uid="uid://cegip78q21h5u" path="res://project/scenes/Item.tscn" id="25_ph6ji"]
+[ext_resource type="Resource" uid="uid://dwqm127y4slnj" path="res://project/resources/weapons/unarmed.tres" id="26_f8gpl"]
+[ext_resource type="Script" uid="uid://cf2l0sdk0mwtd" path="res://project/scripts/components/collector_component.gd" id="27_ph6ji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lftxd"]
 radius = 6.0
@@ -1212,16 +1216,19 @@ _data = {
 radius = 5.0
 height = 14.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_f8gpl"]
+
 [node name="Humanoid" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_e3xw2")
 
-[node name="AnimCtrl" type="Node" parent="." node_paths=PackedStringArray("animator", "weapon_animator", "skin_sprite", "weapon_node")]
+[node name="AnimCtrl" type="Node" parent="." node_paths=PackedStringArray("animator", "weapon_animator", "skin_sprite", "weapon_node", "weapon_sound_player")]
 script = ExtResource("7_c6dlt")
 animator = NodePath("../Skin/SkinAnimation")
 weapon_animator = NodePath("../Weapon/WeaponAnimation")
 skin_sprite = NodePath("../Skin")
 weapon_node = NodePath("../Weapon")
+weapon_sound_player = NodePath("../WeaponSound")
 
 [node name="GroundHitBox" type="CollisionShape2D" parent="."]
 visible = false
@@ -1333,12 +1340,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_c3jn5")
 }
 
-[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("healthcp", "knockcp")]
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("healthcp", "knockcp", "particles")]
 visible = false
 monitoring = false
 script = ExtResource("3_8yvsn")
 healthcp = NodePath("../HealthComponent")
 knockcp = NodePath("../KnockbackComponent")
+particles = NodePath("../Blood")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -7)
@@ -1371,10 +1379,11 @@ atkcp = NodePath("../../AttackingComponent")
 script = ExtResource("18_wrlts")
 sprite = NodePath("../../Skin")
 
-[node name="AttackingComponent" type="Node" parent="." node_paths=PackedStringArray("hitbox_list")]
+[node name="AttackingComponent" type="Node" parent="." node_paths=PackedStringArray("hitbox_list", "weapon_sound_player")]
 script = ExtResource("6_8xpxb")
 cooldown = 0.2
 hitbox_list = [NodePath("../Weapon/FX_group/Attack1"), NodePath("../Weapon/FX_group/Attack2")]
+weapon_sound_player = NodePath("../HitSound")
 metadata/_custom_type_script = "uid://bxw57tbquty01"
 
 [node name="MovementComponent" type="Node" parent="."]
@@ -1389,3 +1398,43 @@ metadata/_custom_type_script = "uid://8qf5fiyl4yu3"
 script = ExtResource("22_oyqbi")
 external_force_multiplier = 3
 metadata/_custom_type_script = "uid://bjxej4h04bigw"
+
+[node name="CollectorComponent" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
+monitorable = false
+script = ExtResource("27_ph6ji")
+metadata/_custom_type_script = "uid://cf2l0sdk0mwtd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectorComponent"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_f8gpl")
+
+[node name="EquipmentCtrl" type="Node" parent="." node_paths=PackedStringArray("collector", "atkcp", "weapon_skin", "weapon_audio_player", "weapon_hit_player", "hurtbox", "weapon_animation")]
+script = ExtResource("24_6cdaj")
+item_drop_template = ExtResource("25_ph6ji")
+collector = NodePath("../CollectorComponent")
+atkcp = NodePath("../AttackingComponent")
+weapon_skin = NodePath("../Weapon/WeaponSkin")
+equiped_weapon = ExtResource("26_f8gpl")
+weapon_audio_player = NodePath("../WeaponSound")
+weapon_hit_player = NodePath("../HitSound")
+hurtbox = NodePath("../Hurtbox")
+weapon_animation = NodePath("../Weapon/WeaponAnimation")
+
+[node name="WeaponSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Blood" type="CPUParticles2D" parent="."]
+position = Vector2(0, -6)
+emitting = false
+lifetime = 1.34
+one_shot = true
+explosiveness = 0.68
+randomness = 0.67
+direction = Vector2(0, -30)
+gravity = Vector2(0, 300)
+initial_velocity_min = 39.99
+initial_velocity_max = 145.44
+color = Color(0.90588236, 0, 0, 1)

@@ -4,6 +4,7 @@ extends State
 @export var sprite:Sprite2D
 @export var atkcp:AttackingComponent
 
+
 func enter():
 	atkcp.stop()
 	state_machine.animator.play_anim(&"idle")

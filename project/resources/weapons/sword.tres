@@ -1,12 +1,16 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://46bkny7e56tx"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://46bkny7e56tx"]
 
 [ext_resource type="Script" uid="uid://by0h3dfosnska" path="res://project/scripts/resources/weapon_data.gd" id="1_abq03"]
 [ext_resource type="Texture2D" uid="uid://bwaoppw1x55ae" path="res://project/assets/Weapons/Sword2/Sprite.png" id="2_vvxse"]
+[ext_resource type="AudioStream" uid="uid://cgat3dairvdtf" path="res://project/assets/audio/sfx/Hit & Impact/Impact4.wav" id="3_8biqe"]
+[ext_resource type="AudioStream" uid="uid://d2kqxccvstn7n" path="res://project/assets/audio/sfx/Whoosh & Slash/Slash.wav" id="3_wjmp8"]
 
 [resource]
 script = ExtResource("1_abq03")
 damage = 20
 scale_modifier = 0.5
+weapon_sound = ExtResource("3_wjmp8")
+weapon_hit_sound = ExtResource("3_8biqe")
 sprite = ExtResource("2_vvxse")
 name = "Normal Sword"
 description = "This is just a regular sword"

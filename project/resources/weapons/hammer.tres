@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://cv6xwugu4qccm"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://cv6xwugu4qccm"]
 
 [ext_resource type="Script" uid="uid://by0h3dfosnska" path="res://project/scripts/resources/weapon_data.gd" id="1_c4gqb"]
 [ext_resource type="Texture2D" uid="uid://cpn14pctmve6b" path="res://project/assets/Weapons/Hammer/Sprite.png" id="2_c4gqb"]
+[ext_resource type="AudioStream" uid="uid://dmrplxtu7dfvm" path="res://project/assets/audio/sfx/Whoosh & Slash/Whoosh.wav" id="3_7br6g"]
+[ext_resource type="AudioStream" uid="uid://caeqmx8l4wr5e" path="res://project/assets/audio/sfx/Hit & Impact/Impact.wav" id="3_cqob1"]
 
 [resource]
 script = ExtResource("1_c4gqb")
@@ -10,6 +12,8 @@ atk_speed = 0.5
 flip_v = true
 scale_modifier = 1.5
 kockback_force = 100
+weapon_sound = ExtResource("3_7br6g")
+weapon_hit_sound = ExtResource("3_cqob1")
 sprite = ExtResource("2_c4gqb")
 name = "Normal Hammer"
 description = "This is just a regular hammer"

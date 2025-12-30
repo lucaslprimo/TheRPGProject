@@ -12,3 +12,5 @@ enum WeaponType{
 @export var flip_v:bool = false
 @export var scale_modifier:float = 1
 @export var kockback_force:int = 10
+@export var weapon_sound:AudioStream
+@export var weapon_hit_sound:AudioStream

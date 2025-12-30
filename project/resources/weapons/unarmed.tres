@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://dwqm127y4slnj"]
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://dwqm127y4slnj"]
 
 [ext_resource type="Script" uid="uid://by0h3dfosnska" path="res://project/scripts/resources/weapon_data.gd" id="1_1wstk"]
+[ext_resource type="AudioStream" uid="uid://blhdgblk4xnwn" path="res://project/assets/audio/sfx/Hit & Impact/Impact5.wav" id="2_18g0x"]
+[ext_resource type="AudioStream" uid="uid://b6b52625fkg0k" path="res://project/assets/audio/sfx/Whoosh & Slash/Launch.wav" id="2_q3lx4"]
 
 [resource]
 script = ExtResource("1_1wstk")
 damage = 5
 kockback_force = 20
+weapon_sound = ExtResource("2_q3lx4")
+weapon_hit_sound = ExtResource("2_18g0x")
 name = "unarmed"
 description = "bar hands"
 metadata/_custom_type_script = "uid://by0h3dfosnska"

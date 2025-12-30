@@ -1,13 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5slxalqbjlnl"]
+[gd_scene load_steps=3 format=3 uid="uid://c5slxalqbjlnl"]
 
 [ext_resource type="PackedScene" uid="uid://c8xs5tiuk8csl" path="res://project/scenes/HumanoidBase.tscn" id="1_gd4xd"]
 [ext_resource type="Script" uid="uid://bo6no0shuxrh3" path="res://project/scripts/humanoids/player/player_input_handler.gd" id="2_qtec2"]
-[ext_resource type="Script" uid="uid://php4n6ogkcsg" path="res://project/scripts/equipment_ctrl.gd" id="3_c5xfa"]
-[ext_resource type="Script" uid="uid://cf2l0sdk0mwtd" path="res://project/scripts/components/collector_component.gd" id="4_h84uw"]
-[ext_resource type="PackedScene" uid="uid://cegip78q21h5u" path="res://project/scenes/Item.tscn" id="4_hurvs"]
-[ext_resource type="Resource" uid="uid://dwqm127y4slnj" path="res://project/resources/weapons/unarmed.tres" id="5_2ms76"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hurvs"]
 
 [node name="Player" groups=["players"] instance=ExtResource("1_gd4xd")]
 collision_layer = 8
@@ -39,21 +33,5 @@ script = ExtResource("2_qtec2")
 movcp = NodePath("../MovementComponent")
 weapon_node = NodePath("../Weapon")
 
-[node name="EquipmentCtrl" type="Node" parent="." index="12" node_paths=PackedStringArray("collector", "atkcp", "weapon_skin")]
-script = ExtResource("3_c5xfa")
-item_drop_template = ExtResource("4_hurvs")
-collector = NodePath("../CollectorComponent")
-atkcp = NodePath("../AttackingComponent")
-weapon_skin = NodePath("../Weapon/WeaponSkin")
-equiped_weapon = ExtResource("5_2ms76")
-
-[node name="CollectorComponent" type="Area2D" parent="." index="13"]
-collision_layer = 16
-collision_mask = 32
-monitorable = false
-script = ExtResource("4_h84uw")
-metadata/_custom_type_script = "uid://cf2l0sdk0mwtd"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectorComponent" index="0"]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_hurvs")
+[node name="HitSound" parent="." index="15"]
+volume_db = -10.0

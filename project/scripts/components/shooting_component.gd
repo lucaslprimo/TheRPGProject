@@ -45,8 +45,6 @@ func fire(direction:Vector2):
 	
 	var final_direction = direction.rotated(calculate_shot_accuracy(aiming_time, aiming_time_limit))
 	
-	print("final_damage", final_damage)
-	
 	aiming_time = 0
 	is_aiming = false
 
@@ -63,7 +61,7 @@ func fire(direction:Vector2):
 		
 		projcp.damage = final_damage
 		projcp.knockback_force = final_knockback
-		print("projectile_damage",projcp.damage)
+
 		get_tree().root.add_child(p_instance)
 		_decrease_ammo()
 		fired.emit()

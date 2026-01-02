@@ -10,7 +10,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 
 [node name="Player" parent="." instance=ExtResource("2_4wxyy")]
 position = Vector2(-82, 0)
@@ -29,8 +29,6 @@ data = ExtResource("5_vbvdg")
 
 [node name="Enemy" parent="." instance=ExtResource("6_vbvdg")]
 position = Vector2(19, -34)
-selected_skin = 3
 
 [node name="Enemy2" parent="." instance=ExtResource("6_vbvdg")]
 position = Vector2(17, 53)
-selected_skin = 2

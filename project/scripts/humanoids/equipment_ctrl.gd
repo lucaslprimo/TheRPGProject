@@ -1,6 +1,8 @@
 class_name EquipmentController
 extends Node
 
+const pickup_text = "[E] to pickup "
+
 @export var item_drop_template:PackedScene
 @export var inv:InventoryComponent
 @export var collector:CollectorComponent
@@ -23,9 +25,11 @@ func _ready() -> void:
 
 func _on_allow_pickup(_info:String):
 	can_pickup = true
+	show_ui(_info)
 	
 func _on_deny_pickup():
 	can_pickup = false
+	hide_ui()
 
 func _input(event: InputEvent) -> void:
 	if owner.is_in_group(&"players"):
@@ -62,3 +66,12 @@ func equip_new_weapon(weapon:WeaponData):
 	weapon_skin.flip_v = weapon.flip_v
 	weapon_audio_player.stream = weapon.weapon_sound
 	weapon_hit_player.stream = weapon.weapon_hit_sound
+	
+func show_ui(item_name: String):
+	if ui_pickup:
+		ui_pickup.text = pickup_text + item_name
+		ui_pickup.visible = true
+	
+func hide_ui():
+	if ui_pickup:
+		ui_pickup.visible = false

@@ -22,8 +22,8 @@ buses/default_bus_layout="res://template/default_bus_layout.tres"
 
 [autoload]
 
-cameraShake="*res://project/scripts/components/camera_shake.gd"
-PopupComponent="*res://project/scripts/components/popup_component.gd"
+CameraShake="*res://project/scripts/components/camera_shake.gd"
+PopupText="*res://project/scripts/components/popup_text_component.gd"
 
 [display]
 

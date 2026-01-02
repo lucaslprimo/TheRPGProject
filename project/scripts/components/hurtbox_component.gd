@@ -15,6 +15,6 @@ func take_damage(_damage:int, _push_force:float, _source_position:Vector2):
 	particles.emitting = true
 	
 	
-	PopupComponent.show(str(_damage), PopupComponent.InfoType.DAMAGE, owner.global_position)
+	PopupText.show(str(_damage), PopupText.InfoType.DAMAGE, owner.global_position)
 	
-	cameraShake.wiggle(float(_damage)/100)
+	CameraShake.wiggle(float(_damage)/100)

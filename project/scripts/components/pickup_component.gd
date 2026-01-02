@@ -2,7 +2,10 @@ class_name PickupComponent
 extends Area2D
 
 func info() -> String:
-	return "Item"
+	if owner is Item:
+		return owner.data.name
+	else:
+		return "Unknown"
 	
 func get_item():
 	return owner

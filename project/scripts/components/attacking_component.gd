@@ -2,7 +2,7 @@ class_name AttackingComponent extends Node
 
 @export var cooldown:float = 4
 @export var damage:int = 20
-@export var kockback_force:int = 20
+@export var knockback_force:int = 20
 @export var hitbox_list:Array[HitBox]
 @export var combo_time:float = 5
 @export var weapon_sound_player:AudioStreamPlayer2D
@@ -59,7 +59,7 @@ func stop():
 		hitbox.get_node("FX").visible = false
 		
 func _process_attack(body:Hurtbox):
-	body.take_damage(damage, kockback_force, owner.global_position)
+	body.take_damage(damage, knockback_force, owner.global_position)
 	hit.emit(body, damage)
 	play_hit_sound()
 	

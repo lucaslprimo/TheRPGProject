@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://dharqcgbowdlv"]
+
+[ext_resource type="Script" uid="uid://by0h3dfosnska" path="res://project/scripts/resources/weapon_data.gd" id="1_70mkl"]
+[ext_resource type="Texture2D" uid="uid://ky27newy2hwv" path="res://project/assets/Weapons/Bow/Sprite.png" id="2_cqvx8"]
+[ext_resource type="AudioStream" uid="uid://cgat3dairvdtf" path="res://project/assets/audio/sfx/Hit & Impact/Impact4.wav" id="2_dsxe1"]
+[ext_resource type="AudioStream" uid="uid://b6b52625fkg0k" path="res://project/assets/audio/sfx/Whoosh & Slash/Launch.wav" id="3_cqvx8"]
+
+[resource]
+script = ExtResource("1_70mkl")
+damage = 40
+weapon_type = 1
+flip_v = true
+knockback_force = 1
+weapon_sound = ExtResource("3_cqvx8")
+weapon_hit_sound = ExtResource("2_dsxe1")
+sprite = ExtResource("2_cqvx8")
+name = "Regular Bow"
+description = "Just  Bow"
+metadata/_custom_type_script = "uid://by0h3dfosnska"

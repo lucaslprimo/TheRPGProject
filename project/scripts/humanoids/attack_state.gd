@@ -7,7 +7,7 @@ extends State
 var attack:int
 
 func enter():
-	state_machine.input_handler.melee_attack.connect(_should_attack)
+	state_machine.input_handler.attack.connect(_should_attack)
 	state_machine.animator.animation_finished.connect(_attack_finished)
 	
 	if atkcp.is_on_cooldown():
@@ -44,6 +44,6 @@ func play_attack_anim():
 	state_machine.animator.play_attack_anim(&"attack_" + str(attack))
 	
 func exit():
-	state_machine.input_handler.melee_attack.disconnect(_should_attack)
+	state_machine.input_handler.attack.disconnect(_should_attack)
 	state_machine.animator.animation_finished.disconnect(_attack_finished)
 	

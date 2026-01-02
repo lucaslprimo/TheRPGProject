@@ -23,6 +23,7 @@ buses/default_bus_layout="res://template/default_bus_layout.tres"
 [autoload]
 
 cameraShake="*res://project/scripts/components/camera_shake.gd"
+PopupComponent="*res://project/scripts/components/popup_component.gd"
 
 [display]
 
@@ -127,4 +128,3 @@ interact={
 
 textures/canvas_textures/default_texture_filter=0
 2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true

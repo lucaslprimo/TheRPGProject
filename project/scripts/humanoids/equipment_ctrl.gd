@@ -1,9 +1,11 @@
+class_name EquipmentController
 extends Node
 
 @export var item_drop_template:PackedScene
 @export var inv:InventoryComponent
 @export var collector:CollectorComponent
 @export var atkcp:AttackingComponent
+@export var ranged_atkcp:ShootingComponent
 @export var weapon_skin:Sprite2D
 @export var ui_pickup:Label
 @export var equiped_weapon:WeaponData
@@ -46,9 +48,15 @@ func drop_equiped_weapon():
 		
 		
 func equip_new_weapon(weapon:WeaponData):
+	match weapon.weapon_type:
+		WeaponData.WeaponType.MELEE:
+			atkcp.damage = weapon.damage
+			atkcp.knockback_force = weapon.knockback_force
+		WeaponData.WeaponType.RANGED:
+			ranged_atkcp.damage = weapon.damage
+			ranged_atkcp.knockback_force = weapon.knockback_force
+	
 	equiped_weapon = weapon
-	atkcp.damage = weapon.damage
-	atkcp.kockback_force = weapon.kockback_force
 	weapon_animation.speed_scale = weapon.atk_speed
 	weapon_skin.texture = weapon.sprite
 	weapon_skin.flip_v = weapon.flip_v

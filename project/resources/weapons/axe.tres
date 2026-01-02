@@ -7,11 +7,11 @@
 
 [resource]
 script = ExtResource("1_x40xu")
-damage = 20
+damage = 50
 atk_speed = 0.5
 flip_v = true
 scale_modifier = 1.5
-kockback_force = 50
+knockback_force = 30
 weapon_sound = ExtResource("3_qm08b")
 weapon_hit_sound = ExtResource("3_al0kc")
 sprite = ExtResource("2_x40xu")

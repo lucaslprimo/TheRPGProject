@@ -1,0 +1,3 @@
+To Refactor
+
+1. Ranged and Melee Weapon inherintin from WeaponData intead of weapon_type on WeaponData

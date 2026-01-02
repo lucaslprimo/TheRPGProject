@@ -1,7 +1,8 @@
 class_name InputHandler
 extends Node
 
-signal melee_attack
+signal attack
+signal attack_release
 
 func process():
 	pass

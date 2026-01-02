@@ -3,6 +3,7 @@ extends AnimController
 
 @export var animator:AnimationPlayer
 @export var weapon_animator:AnimationPlayer
+@export var ranged_weapon_animator:AnimationPlayer
 @export var skin_sprite:Sprite2D
 @export var weapon_node:Node2D
 @export var input_hanlder:InputHandler = InputHandler.new()
@@ -10,6 +11,7 @@ extends AnimController
 
 func _ready() -> void:
 	weapon_animator.animation_finished.connect(_anim_finished)
+	ranged_weapon_animator.animation_finished.connect(_anim_finished)
 	
 func _anim_finished(_animName):
 	animation_finished.emit()
@@ -30,6 +32,11 @@ func play_attack_anim(_name:StringName):
 	if weapon_animator.has_animation(_name):
 		weapon_animator.play(_name)
 		play_sound()
+
+func play_ranged_attack_anim(_name:StringName):
+	if ranged_weapon_animator.has_animation(_name):
+		ranged_weapon_animator.play(_name)
+		play_sound()      
 
 func play_sound():
 	weapon_sound_player.pitch_scale = randf_range(0.8, 1.2)

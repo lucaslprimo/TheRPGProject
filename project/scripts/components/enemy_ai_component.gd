@@ -30,7 +30,7 @@ func process():
 		last_decision = AIDecision.IDLE
 	
 	if last_decision == AIDecision.ATTACK:
-		melee_attack.emit()
+		attack.emit()
 		
 	
 func get_movement_vector() -> Vector2:

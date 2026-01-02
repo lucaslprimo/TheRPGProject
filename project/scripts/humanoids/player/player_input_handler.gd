@@ -36,7 +36,11 @@ func _input(event: InputEvent) -> void:
 	#Verifiy if this is my character with the information saved somewere
 	if event.is_action_pressed("attack"):
 		_should_move = false
-		melee_attack.emit()
+		attack.emit()
+		
+	if event.is_action_released("attack"):
+		_should_move = false
+		attack_release.emit()
 	
 	if event.is_action_pressed("move"):
 		_should_move = true

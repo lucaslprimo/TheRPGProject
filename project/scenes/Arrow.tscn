@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkii8l7y3fw65"]
+
+[ext_resource type="Script" uid="uid://c87tgicpux5ql" path="res://project/scripts/components/projectile_component.gd" id="1_n6yr5"]
+[ext_resource type="Texture2D" uid="uid://bcbjvy4s43qye" path="res://project/assets/Weapons/Bow/Arrow.png" id="2_vggvb"]
+[ext_resource type="Script" uid="uid://dnmf7mwip03pk" path="res://project/scripts/components/hitbox_component.gd" id="3_403yw"]
+[ext_resource type="AudioStream" uid="uid://cgat3dairvdtf" path="res://project/assets/audio/sfx/Hit & Impact/Impact4.wav" id="4_vggvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wck1"]
+size = Vector2(8.5, 1.75)
+
+[node name="Arrow" type="Node2D"]
+
+[node name="ProjectileComponent" type="Node" parent="." node_paths=PackedStringArray("hitbox", "hit_sound")]
+script = ExtResource("1_n6yr5")
+speed = 5.0
+hitbox = NodePath("../HitBox")
+hit_sound = NodePath("../HitSound")
+metadata/_custom_type_script = "uid://c87tgicpux5ql"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(6, -1)
+texture = ExtResource("2_vggvb")
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(6, 0)
+collision_layer = 2
+collision_mask = 256
+script = ExtResource("3_403yw")
+metadata/_custom_type_script = "uid://dnmf7mwip03pk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 0.125)
+shape = SubResource("RectangleShape2D_3wck1")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vggvb")

@@ -1,11 +1,10 @@
-[gd_scene load_steps=63 format=3 uid="uid://c8xs5tiuk8csl"]
+[gd_scene load_steps=62 format=3 uid="uid://c8xs5tiuk8csl"]
 
 [ext_resource type="Script" uid="uid://dkn878huqsmrg" path="res://project/scripts/humanoids/humanoid_base.gd" id="1_e3xw2"]
 [ext_resource type="Texture2D" uid="uid://baifyngifhbto" path="res://project/assets/Characters/Shadow.png" id="1_x2all"]
 [ext_resource type="Texture2D" uid="uid://3w4547733bjn" path="res://project/assets/Characters/Hunter/SpriteSheet.png" id="2_8yvsn"]
 [ext_resource type="Script" uid="uid://cb8nmj1tedwys" path="res://project/scripts/components/hurtbox_component.gd" id="3_8yvsn"]
 [ext_resource type="Script" uid="uid://c0mwlx4wif2vh" path="res://project/scripts/humanoids/skin_manager.gd" id="3_x3p1x"]
-[ext_resource type="Texture2D" uid="uid://b222oj173exhw" path="res://project/assets/Weapons/Bone/Sprite.png" id="4_hmw2o"]
 [ext_resource type="Script" uid="uid://c1c4on1mymyim" path="res://project/scripts/utils/state_machine/state_machine.gd" id="4_kqmbg"]
 [ext_resource type="Texture2D" uid="uid://bcvgip3itvvnu" path="res://project/assets/fx/SlashCurved.png" id="5_7ub6x"]
 [ext_resource type="Script" uid="uid://c6y1t1dbmj457" path="res://project/scripts/humanoids/idle_state.gd" id="5_mgefr"]
@@ -1425,8 +1424,9 @@ z_index = -10
 position = Vector2(-9, 7.000001)
 rotation = 1.0105456
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_hmw2o")
+texture = ExtResource("8_t6alg")
 offset = Vector2(-0.18950653, -7.864891)
+flip_h = true
 
 [node name="WeaponAnimation" type="AnimationPlayer" parent="MeleeWeapon"]
 libraries = {
@@ -1507,8 +1507,7 @@ visible = false
 position = Vector2(0, -6)
 
 [node name="Bow" type="Sprite2D" parent="RangedWeapon"]
-position = Vector2(8, 0)
-rotation = -1.5707964
+position = Vector2(8, -1)
 texture = ExtResource("8_t6alg")
 
 [node name="Arrow" type="Sprite2D" parent="RangedWeapon"]

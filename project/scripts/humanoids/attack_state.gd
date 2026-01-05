@@ -7,6 +7,7 @@ extends State
 var attack:int
 
 func enter():
+	state_machine.input_handler.reset_movement()
 	state_machine.input_handler.attack.connect(_should_attack)
 	state_machine.animator.animation_finished.connect(_attack_finished)
 	

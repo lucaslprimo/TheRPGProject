@@ -21,31 +21,31 @@ enum PlayerSlot{
 func _ready() -> void:
 	if owner is CharacterBody2D:
 		player = owner
+		move_to = player.global_position
 
 func get_movement_vector() -> Vector2:
-	if _should_move:
+	if move_to != player.global_position:
 		return (move_to - player.global_position).normalized()
 		
 	return Vector2.ZERO
 
 func process():
 	if player.global_position.distance_to(move_to) < 10:
-		_should_move = false
+		move_to = player.global_position
 
 func _input(event: InputEvent) -> void:
 	#Verifiy if this is my character with the information saved somewere
 	if event.is_action_pressed("attack"):
-		_should_move = false
 		attack.emit()
 		
 	if event.is_action_released("attack"):
-		_should_move = false
 		attack_release.emit()
 	
 	if event.is_action_pressed("move"):
-		_should_move = true
 		move_to = player.get_global_mouse_position()
 
+func reset_movement():
+	move_to = owner.global_position
 
 func get_target_pos() -> Vector2:
 	return player.get_global_mouse_position()

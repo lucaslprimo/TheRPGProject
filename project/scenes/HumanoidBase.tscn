@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c8xs5tiuk8csl"]
+[gd_scene load_steps=66 format=3 uid="uid://c8xs5tiuk8csl"]
 
 [ext_resource type="Script" uid="uid://dkn878huqsmrg" path="res://project/scripts/humanoids/humanoid_base.gd" id="1_e3xw2"]
 [ext_resource type="Texture2D" uid="uid://baifyngifhbto" path="res://project/assets/Characters/Shadow.png" id="1_x2all"]
@@ -31,6 +31,9 @@
 [ext_resource type="PackedScene" uid="uid://cegip78q21h5u" path="res://project/scenes/Item.tscn" id="25_ph6ji"]
 [ext_resource type="Resource" uid="uid://dwqm127y4slnj" path="res://project/resources/weapons/unarmed.tres" id="26_f8gpl"]
 [ext_resource type="Script" uid="uid://cf2l0sdk0mwtd" path="res://project/scripts/components/collector_component.gd" id="27_ph6ji"]
+[ext_resource type="Texture2D" uid="uid://d0g28nkr2j8ix" path="res://template/theme/nine_path_8.png" id="32_ti3im"]
+[ext_resource type="Script" uid="uid://i8vj3ll7m700" path="res://project/scenes/progress_bar_ctrl.gd" id="33_x3e8u"]
+[ext_resource type="FontFile" uid="uid://dgmfx26ownlxl" path="res://project/assets/font/font_normal.ttf" id="34_5dl4n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lftxd"]
 radius = 6.0
@@ -1392,6 +1395,12 @@ height = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f8gpl"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_x3e8u"]
+font = ExtResource("34_5dl4n")
+font_size = 9
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Humanoid" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_e3xw2")
@@ -1652,3 +1661,40 @@ initial_velocity_min = 39.99
 initial_velocity_max = 145.44
 scale_amount_max = 3.0
 color = Color(0.90588236, 0, 0, 1)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -24.0
+offset_right = 14.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 3
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("32_ti3im")
+texture_progress = ExtResource("32_ti3im")
+tint_under = Color(0.9607843, 0.043137256, 0.105882354, 1)
+tint_progress = Color(0.2901961, 0.9372549, 0, 1)
+script = ExtResource("33_x3e8u")
+label = NodePath("Node2D/Label")
+
+[node name="Node2D" type="Node2D" parent="TextureProgressBar"]
+position = Vector2(14, 24)
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="TextureProgressBar/Node2D"]
+offset_left = -38.0
+offset_top = -58.0
+offset_right = 38.0
+offset_bottom = -28.0
+text = "100"
+label_settings = SubResource("LabelSettings_x3e8u")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -15,12 +15,13 @@ func _ready() -> void:
 func apply_damage(damage:int):
 	var old_hp = current_hp
 	current_hp-= damage
-	hp_changed.emit(old_hp,current_hp)
 	
 	if(current_hp <= 0):
+		current_hp = 0
 		alive = false
 		died.emit()
-	
+		
+	hp_changed.emit(old_hp,current_hp)
 	hurt.emit(damage)
 	
 func apply_heal(healing:int):

@@ -1,7 +1,7 @@
 class_name EquipmentController
 extends Node
 
-const pickup_text = "[E] to pickup "
+const pickup_text = "[F] to pickup "
 
 @export var item_drop_template:PackedScene
 @export var inv:InventoryComponent

@@ -16,7 +16,11 @@ func _ready() -> void:
 func update_hp(_old_hp, new_hp):
 	updated_hp = new_hp
 	label.text = str(int(updated_hp))
+	if updated_hp == 0:
+		visible = false
+	
 	
 func _process(_delta: float) -> void:
 	if value != updated_hp:
 		value = lerp(value, float(updated_hp), 0.2)
+		

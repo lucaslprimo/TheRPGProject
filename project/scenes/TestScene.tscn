@@ -29,6 +29,3 @@ data = ExtResource("5_vbvdg")
 
 [node name="Enemy" parent="." instance=ExtResource("6_vbvdg")]
 position = Vector2(19, -34)
-
-[node name="Enemy2" parent="." instance=ExtResource("6_vbvdg")]
-position = Vector2(17, 53)

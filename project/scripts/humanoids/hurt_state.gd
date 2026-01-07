@@ -17,5 +17,7 @@ func physics_process(_delta:float):
 		owner.velocity = owner.velocity.move_toward(Vector2.ZERO,_delta)
 		owner.move_and_slide()
 
+func exit():
+	state_machine.input_handler.reset_movement()
 
 	

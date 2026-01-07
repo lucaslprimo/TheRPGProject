@@ -3,21 +3,28 @@ extends State
 @export var equip_ctrl:EquipmentController
 	
 func enter():
+	super.enter()
 	state_machine.input_handler.attack.connect(_should_attack)
 	
 func process(_delta:float):
+	if not is_active:
+		return
+		
 	state_machine.input_handler.process()
 	state_machine.animator.play_anim(&"walk")
 	check_input_vector()
 	
 func _should_attack():
 	match equip_ctrl.equiped_weapon.weapon_type:
-		WeaponData.WeaponType.MELEE:  
-			state_machine.stack_state(&"attack")
+		WeaponData.WeaponType.MELEE:
+			state_machine.stack_state(&"attack", false)
 		WeaponData.WeaponType.RANGED:
-			state_machine.stack_state(&"ranged_attack")
+			state_machine.stack_state(&"ranged_attack", false)
 
 func physics_process(_delta:float):
+	if not is_active:
+		return
+	
 	var input_vector = check_input_vector()
 	
 	if owner is CharacterBody2D:
@@ -25,6 +32,9 @@ func physics_process(_delta:float):
 		owner.move_and_slide()
 	
 func check_input_vector():
+	if not is_active:
+		return
+		
 	var input_vector = state_machine.input_handler.get_movement_vector()
 	
 	if input_vector.length() < 0.1:
@@ -33,4 +43,5 @@ func check_input_vector():
 	return input_vector
 	
 func exit():
+	super.exit()
 	state_machine.input_handler.attack.disconnect(_should_attack)

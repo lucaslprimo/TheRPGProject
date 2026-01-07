@@ -7,6 +7,7 @@ extends State
 var attack:int
 
 func enter():
+	super.enter()
 	state_machine.input_handler.reset_movement()
 	state_machine.input_handler.attack.connect(_should_attack)
 	state_machine.animator.animation_finished.connect(_attack_finished)
@@ -45,6 +46,7 @@ func play_attack_anim():
 	state_machine.animator.play_attack_anim(&"attack_" + str(attack))
 	
 func exit():
+	super.exit()
 	state_machine.input_handler.attack.disconnect(_should_attack)
 	state_machine.animator.animation_finished.disconnect(_attack_finished)
 	

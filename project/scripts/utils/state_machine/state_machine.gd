@@ -26,6 +26,7 @@ func initialize():
 			
 	current_state = states[states.keys()[0]]
 	current_state.enter()
+	current_state.is_active = true
 
 func change_state(new_state:StringName):
 	if not current_state:
@@ -37,9 +38,7 @@ func change_state(new_state:StringName):
 	if current_state.name == new_state:
 		return
 	
-	current_state.exit()
-	current_state = states[new_state]	
-	current_state.enter()
+	_transition_state(new_state)
 	
 	if debug:
 		print("State changed to ", current_state.name)
@@ -53,30 +52,29 @@ func final_state(new_state:StringName):
 		
 	is_final_state = true
 	
-	current_state.exit()
-	current_state = states[new_state]
-	current_state.enter()
+	_transition_state(new_state)
 	
 	if debug:
 		print("State override to ", current_state.name)
 	
-func stack_state(new_state:StringName):
+func stack_state(new_state:StringName, allow_duplication:bool = true):
 	if not current_state:
 		return
 		
 	if is_final_state:
 		return
-
-	current_state.exit()
+		
+	if not allow_duplication:
+		if current_state.name == new_state:
+			return
+	
 	if not is_stacked:
 		last_state = current_state.name
 		is_stacked = true
 	else:
 		animator.reset()
-		
-	current_state = states[new_state]
 	
-	current_state.enter()
+	_transition_state(new_state)
 	
 	if debug:
 		print("State stacked: ", current_state.name)
@@ -90,14 +88,14 @@ func pop_state():
 		
 	is_stacked = false
 	
-	current_state.exit()
-	current_state = states[last_state]
-	current_state.enter()
+	_transition_state(last_state)
 	
 	if debug:
 		print("State poped to ", current_state.name)
 
 func _process(_delta: float):
+	if not owner.is_in_group("players"):
+		print("Calling process for: ", current_state.name)
 	current_state.process(_delta)
 	
 func _physics_process(_delta: float):
@@ -110,3 +108,10 @@ func _on_died():
 	final_state(&"died")
 	
 	
+func _transition_state(_state_name:StringName):
+	print("TRANSITION de ", current_state.name, " para ", _state_name)
+	current_state.is_active = false
+	current_state.exit()
+	current_state = states[_state_name]
+	current_state.enter()
+	current_state.is_active = true

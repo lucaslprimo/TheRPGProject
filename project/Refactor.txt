@@ -1,3 +1,18 @@
 To Refactor
 
 1. Ranged and Melee Weapon inherintin from WeaponData intead of weapon_type on WeaponData
+
+
+
+To Do:
+	
+- Press Q for Switching from Melee to Ranged
+- Press W or wathever for Mobility
+	- Heavy weapons(Axe, Hammer) could jump and damage a circle area
+	- Light weapons(Sword, dagger) could dash and do damage on the dashing area
+	- Bow could thumble and dodge, maybe get mov speed, if is too weak just dodging, or allowing to do it more often
+	- Magig Wand could teleport to the mouse position
+
+
+
+	

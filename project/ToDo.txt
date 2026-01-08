@@ -32,4 +32,6 @@ Magic Wand(Fire):
 	W - Fire Cone
 	E - Teleport
 	R - Fire Ball
-	
+
+
+Priority: 

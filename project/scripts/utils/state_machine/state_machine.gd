@@ -94,8 +94,6 @@ func pop_state():
 		print("State poped to ", current_state.name)
 
 func _process(_delta: float):
-	if not owner.is_in_group("players"):
-		print("Calling process for: ", current_state.name)
 	current_state.process(_delta)
 	
 func _physics_process(_delta: float):
@@ -109,7 +107,6 @@ func _on_died():
 	
 	
 func _transition_state(_state_name:StringName):
-	print("TRANSITION de ", current_state.name, " para ", _state_name)
 	current_state.is_active = false
 	current_state.exit()
 	current_state = states[_state_name]

@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://bo6no0shuxrh3" path="res://project/scripts/humanoids/player/player_input_handler.gd" id="2_qtec2"]
 
 [sub_resource type="FontFile" id="FontFile_y5s04"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/30/0/ascent = 0.0
 cache/0/30/0/descent = 0.0
 cache/0/30/0/underline_position = 0.0
@@ -64,6 +67,11 @@ ui_pickup = NodePath("../InteractionControl/Label")
 [node name="HitSound" parent="." index="17"]
 volume_db = -10.0
 
+[node name="TextureProgressBar" parent="." index="18"]
+visible = false
+offset_top = -18.0
+offset_bottom = -17.0
+
 [node name="InteractionControl" type="Node2D" parent="." index="19"]
 scale = Vector2(0.8, 0.8)
 
@@ -78,6 +86,3 @@ text = "[E] to pickup Item Name"
 label_settings = SubResource("LabelSettings_qtec2")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="TextureProgressBar" parent="." index="20"]
-visible = false

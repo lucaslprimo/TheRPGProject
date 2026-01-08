@@ -28,4 +28,5 @@ position = Vector2(-65, 37)
 data = ExtResource("5_vbvdg")
 
 [node name="Enemy" parent="." instance=ExtResource("6_vbvdg")]
-position = Vector2(19, -34)
+position = Vector2(28, 4)
+selected_skin = 3

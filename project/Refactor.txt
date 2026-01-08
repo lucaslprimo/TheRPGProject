@@ -6,13 +6,37 @@ To Refactor
 
 To Do:
 	
-- Press Q for Switching from Melee to Ranged
-- Press W or wathever for Mobility
+- Press Q for Switching from btwn the 2 weapos equiped
+- Press E or wathever for Mobility
 	- Heavy weapons(Axe, Hammer) could jump and damage a circle area
 	- Light weapons(Sword, dagger) could dash and do damage on the dashing area
 	- Bow could thumble and dodge, maybe get mov speed, if is too weak just dodging, or allowing to do it more often
-	- Magig Wand could teleport to the mouse position
-
-
-
+	- Magic Wand could teleport to the mouse position
 	
+
+Bow:
+	W - Multipe Arrows Cone
+	E - Thumble
+	R - Trap
+
+Axe:
+	W - Joy of Battle (Recovers % of the damage dealt)
+	E - Jump and Slam ( jumps and gives damage on landing)
+	R - Rage(Gives double damage, but also takes double damage)
+	
+Hammer:
+	W - Taunt
+	E - Jump and Smash( Jumps and pushs enemies away when landing) 
+	R - Shield and Boom( stuns and explodes)
+
+Sword:
+	W - Slash in front
+	E - Dash and attack
+	R - Dash trhoug enemies (Q master yi)
+
+Magic Wand(Fire):
+	W - Fire Cone
+	E - Teleport
+	R - Fire Ball
+	
+ 

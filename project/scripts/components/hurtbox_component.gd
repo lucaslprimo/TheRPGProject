@@ -21,7 +21,6 @@ func instantiate_blood(_amount:int, _hit_source_pos:Vector2):
 	
 	var blood:BloodParticles = particles_fab.instantiate()
 	blood.particles.amount = _amount
-	print(_hit_source_pos)
 	blood.particles.direction = direction_from_source
 	blood.global_position = owner.global_position
 	get_tree().root.add_child(blood)

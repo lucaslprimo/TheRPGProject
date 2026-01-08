@@ -32,4 +32,10 @@ Magic Wand(Fire):
 	W - Fire Cone
 	E - Teleport
 	R - Fire Ball
-	
+
+
+Priority: 
+	- Mobility Skill for each weapon
+	- Weapon Swap, weapon drop
+	- Procedural Dungeon
+	- Magic Wand

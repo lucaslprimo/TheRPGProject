@@ -19,7 +19,24 @@ Bow:
 	E - Thumble
 	R - Trap
 
-Axe/Hammer:
-	W - 
-	E - Jump and Smash
-	R - 
+Axe:
+	W - Joy of Battle (Recovers % of the damage dealt)
+	E - Jump and Slam ( jumps and gives damage on landing)
+	R - Rage(Gives double damage, but also takes double damage)
+	
+Hammer:
+	W - Taunt
+	E - Jump and Smash( Jumps and pushs enemies away when landing) 
+	R - Shield and Boom( stuns and explodes)
+
+Sword:
+	W - Slash in front
+	E - Dash and attack
+	R - Dash trhoug enemies (Q master yi)
+
+Magic Wand(Fire):
+	W - Fire Cone
+	E - Teleport
+	R - Fire Ball
+	
+ 

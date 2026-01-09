@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3sk7t058hk1o"]
+
+[ext_resource type="Script" uid="uid://dygm7j578hjxq" path="res://project/scripts/ui_manager.gd" id="1_8wq16"]
+[ext_resource type="Texture2D" uid="uid://tn0v2ahnlapu" path="res://project/assets/ui/unchecked.png" id="1_fy0x8"]
+[ext_resource type="Texture2D" uid="uid://b8ibu0jnhgoni" path="res://project/assets/Weapons/Axe/Sprite.png" id="2_8wq16"]
+[ext_resource type="Texture2D" uid="uid://ky27newy2hwv" path="res://project/assets/Weapons/Bow/Sprite.png" id="3_8wq16"]
+[ext_resource type="Texture2D" uid="uid://dxbipn0rfv1wo" path="res://project/assets/ui/LifeBarMiniUnder.png" id="5_agp4d"]
+[ext_resource type="Texture2D" uid="uid://qfce3dlt6ryw" path="res://project/assets/ui/LifeBarMiniProgress.png" id="6_0dtjg"]
+[ext_resource type="FontFile" uid="uid://dgmfx26ownlxl" path="res://project/assets/font/font_normal.ttf" id="8_yq20d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rechr"]
+font = ExtResource("8_yq20d")
+font_size = 9
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Ui" type="CanvasLayer" node_paths=PackedStringArray("sprite_primary", "sprite_secondary", "hp_bar", "hp_label")]
+layer = 50
+script = ExtResource("1_8wq16")
+sprite_primary = NodePath("WeaponSwap/WeaponSlot_1/WeaponSprite_Primary")
+sprite_secondary = NodePath("WeaponSwap/WeaponSlot_2/WeaponSprite_Secondary")
+hp_bar = NodePath("PlayerInfo/TextureProgressBar")
+hp_label = NodePath("PlayerInfo/TextureProgressBar/Label")
+
+[node name="WeaponSwap" type="Node2D" parent="."]
+position = Vector2(7, 730)
+scale = Vector2(1.2, 1.2)
+
+[node name="WeaponSlot_1" type="Sprite2D" parent="WeaponSwap"]
+position = Vector2(66.5, -81.5)
+scale = Vector2(3, 2.942)
+texture = ExtResource("1_fy0x8")
+
+[node name="WeaponSprite_Primary" type="Sprite2D" parent="WeaponSwap/WeaponSlot_1"]
+position = Vector2(0, 0.018943934)
+rotation = -0.4956735
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_8wq16")
+
+[node name="WeaponSlot_2" type="Sprite2D" parent="WeaponSwap"]
+position = Vector2(35, -47)
+scale = Vector2(1.5, 1.4937079)
+texture = ExtResource("1_fy0x8")
+
+[node name="WeaponSprite_Secondary" type="Sprite2D" parent="WeaponSwap/WeaponSlot_2"]
+position = Vector2(0, 0.018943934)
+rotation = -0.4956735
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("3_8wq16")
+
+[node name="PlayerInfo" type="Node2D" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PlayerInfo"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 33.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+value = 80.0
+texture_under = ExtResource("5_agp4d")
+texture_progress = ExtResource("6_0dtjg")
+tint_progress = Color(0.8597288, 0.31907532, 0, 1)
+
+[node name="Label" type="Label" parent="PlayerInfo/TextureProgressBar"]
+layout_mode = 0
+offset_left = -4.25
+offset_top = -1.25
+offset_right = 71.75
+offset_bottom = 26.75
+scale = Vector2(0.2, 0.2)
+text = "100"
+label_settings = SubResource("LabelSettings_rechr")
+horizontal_alignment = 1
+vertical_alignment = 1

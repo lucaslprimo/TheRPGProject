@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkah125sti8rj"]
+[gd_scene load_steps=9 format=3 uid="uid://bkah125sti8rj"]
 
 [ext_resource type="PackedScene" uid="uid://c5slxalqbjlnl" path="res://project/scenes/Player.tscn" id="2_4wxyy"]
 [ext_resource type="PackedScene" uid="uid://cegip78q21h5u" path="res://project/scenes/Item.tscn" id="2_74fhv"]
@@ -6,8 +6,14 @@
 [ext_resource type="Resource" uid="uid://46bkny7e56tx" path="res://project/resources/weapons/sword.tres" id="4_vbvdg"]
 [ext_resource type="Resource" uid="uid://dharqcgbowdlv" path="res://project/resources/weapons/bow.tres" id="5_vbvdg"]
 [ext_resource type="PackedScene" uid="uid://cohfhpylefv2v" path="res://project/scenes/Enemy.tscn" id="6_vbvdg"]
+[ext_resource type="PackedScene" uid="uid://d3sk7t058hk1o" path="res://project/scenes/UI.tscn" id="7_g2a1q"]
+[ext_resource type="Script" uid="uid://2n7k70fbkcq4" path="res://project/scenes/game_manager.gd" id="8_tg816"]
 
 [node name="Main" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player_ui")]
+script = ExtResource("8_tg816")
+player_ui = NodePath("../Ui")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -29,4 +35,5 @@ data = ExtResource("5_vbvdg")
 
 [node name="Enemy" parent="." instance=ExtResource("6_vbvdg")]
 position = Vector2(28, 4)
-selected_skin = 3
+
+[node name="Ui" parent="." instance=ExtResource("7_g2a1q")]

@@ -8,7 +8,7 @@ func enter():
 	state_machine.animator.play_anim(&"idle")
 	
 func _should_attack():
-	match equip_ctrl.equiped_weapon.weapon_type:
+	match equip_ctrl.get_selected_weapon().weapon_type:
 		WeaponData.WeaponType.MELEE:  
 			state_machine.stack_state(&"attack", false)
 		WeaponData.WeaponType.RANGED:

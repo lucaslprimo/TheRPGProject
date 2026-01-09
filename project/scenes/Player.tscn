@@ -28,7 +28,7 @@ shadow_size = 3
 [node name="Player" groups=["players"] instance=ExtResource("1_gd4xd")]
 collision_layer = 8
 
-[node name="AnimCtrl" parent="." index="0" node_paths=PackedStringArray("input_hanlder")]
+[node name="AnimCtrl" parent="." index="1" node_paths=PackedStringArray("input_hanlder")]
 input_hanlder = NodePath("../PlayerInputHandler")
 
 [node name="Attack1" parent="MeleeWeapon/FX_group" index="0"]
@@ -43,11 +43,11 @@ collision_mask = 256
 collision_layer = 2
 collision_mask = 256
 
-[node name="Hurtbox" parent="." index="6"]
+[node name="Hurtbox" parent="." index="7"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="StateMachine" parent="." index="7" node_paths=PackedStringArray("input_handler")]
+[node name="StateMachine" parent="." index="8" node_paths=PackedStringArray("input_handler")]
 input_handler = NodePath("../PlayerInputHandler")
 
 [node name="hurt" parent="StateMachine" index="4"]
@@ -57,25 +57,31 @@ hurt_duration = 0.4
 script = ExtResource("2_qtec2")
 movcp = NodePath("../MovementComponent")
 
-[node name="MovementComponent" parent="." index="11"]
+[node name="MovementComponent" parent="." index="12"]
 max_speed = 150
 desceleration = 800
 
-[node name="EquipmentCtrl" parent="." index="15" node_paths=PackedStringArray("ui_pickup")]
-ui_pickup = NodePath("../InteractionControl/Label")
+[node name="EquipmentCtrl" parent="." index="16" node_paths=PackedStringArray("ui_pickup")]
+ui_pickup = NodePath("../InteractionUI/Label")
 
-[node name="HitSound" parent="." index="17"]
-volume_db = -10.0
+[node name="Blood" type="CPUParticles2D" parent="." index="18"]
+z_index = -10
+position = Vector2(0, -6)
+emitting = false
+one_shot = true
+explosiveness = 0.68
+randomness = 0.67
+direction = Vector2(0, -30)
+gravity = Vector2(0, 300)
+initial_velocity_min = 39.99
+initial_velocity_max = 145.44
+scale_amount_max = 3.0
+color = Color(0.90588236, 0, 0, 1)
 
-[node name="TextureProgressBar" parent="." index="18"]
-visible = false
-offset_top = -18.0
-offset_bottom = -17.0
-
-[node name="InteractionControl" type="Node2D" parent="." index="19"]
+[node name="InteractionUI" type="Node2D" parent="." index="19"]
 scale = Vector2(0.8, 0.8)
 
-[node name="Label" type="Label" parent="InteractionControl" index="0"]
+[node name="Label" type="Label" parent="InteractionUI" index="0"]
 visible = false
 offset_left = -87.0
 offset_top = -76.0
@@ -86,3 +92,11 @@ text = "[E] to pickup Item Name"
 label_settings = SubResource("LabelSettings_qtec2")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HitSound" parent="." index="20"]
+volume_db = -10.0
+
+[node name="TextureProgressBar" parent="." index="21"]
+visible = false
+offset_top = -18.0
+offset_bottom = -17.0

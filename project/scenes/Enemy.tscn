@@ -7,7 +7,7 @@
 collision_layer = 2048
 collision_mask = 2049
 
-[node name="AnimCtrl" parent="." index="0" node_paths=PackedStringArray("input_hanlder")]
+[node name="AnimCtrl" parent="." index="1" node_paths=PackedStringArray("input_hanlder")]
 input_hanlder = NodePath("../EnemyAIComponenent")
 
 [node name="Attack1" parent="MeleeWeapon/FX_group" index="0"]
@@ -22,23 +22,23 @@ collision_mask = 4
 collision_layer = 512
 collision_mask = 4
 
-[node name="Hurtbox" parent="." index="6"]
+[node name="Hurtbox" parent="." index="7"]
 collision_layer = 256
 collision_mask = 0
 
-[node name="StateMachine" parent="." index="7" node_paths=PackedStringArray("input_handler")]
+[node name="StateMachine" parent="." index="8" node_paths=PackedStringArray("input_handler")]
 input_handler = NodePath("../EnemyAIComponenent")
 
-[node name="AttackingComponent" parent="." index="8"]
+[node name="AttackingComponent" parent="." index="9"]
 cooldown = 2.0
 
-[node name="ShootingComponent" parent="." index="9"]
+[node name="ShootingComponent" parent="." index="10"]
 cooldown_time = 1.0
-
-[node name="MovementComponent" parent="." index="10"]
-max_speed = 50
 
 [node name="EnemyAIComponenent" type="Node" parent="." index="11"]
 script = ExtResource("2_hgxob")
 attack_distance = 30.0
 metadata/_custom_type_script = "uid://cr5xyqinmscmn"
+
+[node name="MovementComponent" parent="." index="12"]
+max_speed = 50

@@ -8,7 +8,8 @@ func info() -> String:
 		return "Unknown"
 	
 func get_item():
-	return owner
+	if owner is Item:
+		return owner
 	
 func delete():
 	owner.queue_free()

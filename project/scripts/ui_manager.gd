@@ -45,3 +45,10 @@ func swap_slots():
 	sprite_primary.texture = sprite_secondary.texture
 	sprite_secondary.texture = temp
 	
+	var tween = create_tween()
+	var current_scale = sprite_primary.transform.get_scale().x
+	
+	tween.tween_property(sprite_primary,"scale:x", current_scale + 0.3, 0.1).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(sprite_primary,"scale:x", current_scale, 0.1).set_trans(Tween.TRANS_ELASTIC)
+	tween.play()
+	

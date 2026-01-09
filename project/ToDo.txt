@@ -6,7 +6,6 @@ To Do:
 	- Light weapons(Sword, dagger) could dash and do damage on the dashing area
 	- Bow could thumble and dodge, maybe get mov speed, if is too weak just dodging, or allowing to do it more often
 	- Magic Wand could teleport to the mouse position
-	
 
 Bow:
 	W - Multipe Arrows Cone
@@ -33,9 +32,8 @@ Magic Wand(Fire):
 	E - Teleport
 	R - Fire Ball
 
-
 Priority: 
 	- Mobility Skill for each weapon
-	- Weapon Swap, weapon drop
+	- Weapon Swap, weapon drop - DONE
 	- Procedural Dungeon
 	- Magic Wand

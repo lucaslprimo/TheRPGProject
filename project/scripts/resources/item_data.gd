@@ -7,6 +7,6 @@ enum ItemType{
 }
 
 @export var sprite:Texture2D
-@export var name = ""
-@export var description = ""
+@export var name := ""
+@export var description := ""
 @export var type:ItemType

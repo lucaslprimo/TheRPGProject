@@ -1427,6 +1427,7 @@ hpcp = NodePath("../HealthComponent")
 atkcp = NodePath("../AttackingComponent")
 rangedcp = NodePath("../ShootingComponent")
 collectorcp = NodePath("../CollectorComponent")
+item_drop_template = ExtResource("25_ph6ji")
 starting_weapon_primary = ExtResource("26_f8gpl")
 starting_weapon_secondary = ExtResource("26_f8gpl")
 
@@ -1659,7 +1660,6 @@ shape = SubResource("CircleShape2D_f8gpl")
 
 [node name="EquipmentCtrl" type="Node" parent="." node_paths=PackedStringArray("weapon_skin", "weapon_audio_player", "weapon_hit_player", "weapon_animation")]
 script = ExtResource("24_6cdaj")
-item_drop_template = ExtResource("25_ph6ji")
 weapon_skin = NodePath("../MeleeWeapon/WeaponSkin")
 weapon_audio_player = NodePath("../WeaponSound")
 weapon_hit_player = NodePath("../HitSound")

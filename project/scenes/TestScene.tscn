@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://dharqcgbowdlv" path="res://project/resources/weapons/bow.tres" id="5_vbvdg"]
 [ext_resource type="PackedScene" uid="uid://cohfhpylefv2v" path="res://project/scenes/Enemy.tscn" id="6_vbvdg"]
 [ext_resource type="PackedScene" uid="uid://d3sk7t058hk1o" path="res://project/scenes/UI.tscn" id="7_g2a1q"]
-[ext_resource type="Script" uid="uid://2n7k70fbkcq4" path="res://project/scenes/game_manager.gd" id="8_tg816"]
+[ext_resource type="Script" uid="uid://2n7k70fbkcq4" path="res://project/scripts/game_manager.gd" id="8_tg816"]
 
 [node name="Main" type="Node2D"]
 
@@ -30,10 +30,11 @@ position = Vector2(88, 37)
 data = ExtResource("4_vbvdg")
 
 [node name="Item3" parent="." instance=ExtResource("2_74fhv")]
-position = Vector2(-65, 37)
+position = Vector2(-45, 72)
 data = ExtResource("5_vbvdg")
 
 [node name="Enemy" parent="." instance=ExtResource("6_vbvdg")]
 position = Vector2(28, 4)
 
 [node name="Ui" parent="." instance=ExtResource("7_g2a1q")]
+visible = false

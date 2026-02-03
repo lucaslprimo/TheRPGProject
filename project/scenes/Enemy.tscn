@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cohfhpylefv2v"]
+[gd_scene load_steps=9 format=3 uid="uid://cohfhpylefv2v"]
 
 [ext_resource type="PackedScene" uid="uid://c8xs5tiuk8csl" path="res://project/scenes/HumanoidBase.tscn" id="1_fceif"]
+[ext_resource type="Texture2D" uid="uid://cjat5nk2f7ugv" path="res://project/assets/Characters/DemonGreen/SpriteSheet.png" id="2_8huj5"]
 [ext_resource type="Script" uid="uid://cr5xyqinmscmn" path="res://project/scripts/components/enemy_ai_component.gd" id="2_hgxob"]
+[ext_resource type="Texture2D" uid="uid://b4wuh201fgpl0" path="res://project/assets/Characters/SkeletonDemon/SpriteSheet.png" id="3_b4ehm"]
+[ext_resource type="Texture2D" uid="uid://cycdkqpn2pk85" path="res://project/assets/Characters/Spirit/SpriteSheet.png" id="4_e7vsw"]
+[ext_resource type="Texture2D" uid="uid://c7r0nrf3hqx1a" path="res://project/assets/Characters/Skeleton/SpriteSheet.png" id="5_wr3pc"]
+[ext_resource type="Texture2D" uid="uid://snm1invrmpfw" path="res://project/assets/Characters/DemonRed/SpriteSheet.png" id="6_7b3np"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hgxob"]
+radius = 127.01575
 
 [node name="Enemy" instance=ExtResource("1_fceif")]
 collision_layer = 2048
@@ -22,6 +30,10 @@ collision_mask = 4
 collision_layer = 512
 collision_mask = 4
 
+[node name="Skin" parent="." index="6"]
+texture = ExtResource("2_8huj5")
+skins = Array[Texture2D]([ExtResource("2_8huj5"), ExtResource("3_b4ehm"), ExtResource("4_e7vsw"), ExtResource("5_wr3pc"), ExtResource("6_7b3np")])
+
 [node name="Hurtbox" parent="." index="7"]
 collision_layer = 256
 collision_mask = 0
@@ -35,10 +47,26 @@ cooldown = 2.0
 [node name="ShootingComponent" parent="." index="10"]
 cooldown_time = 1.0
 
-[node name="EnemyAIComponenent" type="Node" parent="." index="11"]
+[node name="EnemyAIComponenent" type="Node" parent="." index="11" node_paths=PackedStringArray("awareness_range")]
 script = ExtResource("2_hgxob")
 attack_distance = 30.0
+awareness_range = NodePath("../AwarenessRange")
 metadata/_custom_type_script = "uid://cr5xyqinmscmn"
 
 [node name="MovementComponent" parent="." index="12"]
 max_speed = 50
+
+[node name="HealthComponent" parent="." index="13"]
+max_hp = 20
+
+[node name="TextureProgressBar" parent="." index="19"]
+visible = false
+
+[node name="AwarenessRange" type="Area2D" parent="." index="20"]
+collision_layer = 1024
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AwarenessRange" index="0"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_hgxob")
+debug_color = Color(0.88200253, 0.014283666, 0.36205536, 0.41960785)

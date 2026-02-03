@@ -28,7 +28,7 @@ func process(_delta:float):
 	state_machine.input_handler.process()
 	if is_aiming:
 		state_machine.animator.play_anim(&"aim")
-		weapon_node.look_at(weapon_node.get_global_mouse_position())
+		weapon_node.look_at(state_machine.input_handler.get_target_pos())
 		
 func physics_process(_delta:float):
 	if owner is CharacterBody2D:

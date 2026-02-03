@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1865id5ue0h5"]
+[gd_scene load_steps=2 format=3 uid="uid://d05l31lichdfk"]
 
-[ext_resource type="Script" path="res://project/scripts/blood.gd" id="1_8fa1u"]
+[ext_resource type="Script" path="res://project/scripts/blood.gd" id="1_5u2bb"]
 
 [node name="Blood" type="Node2D" node_paths=PackedStringArray("particles")]
-script = ExtResource("1_8fa1u")
+script = ExtResource("1_5u2bb")
 particles = NodePath("Particles")
 
 [node name="Particles" type="CPUParticles2D" parent="."]

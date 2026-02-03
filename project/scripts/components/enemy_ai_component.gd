@@ -1,12 +1,20 @@
 class_name EnemyAIComponenent
 extends InputHandler
 
-enum AttackType { MELEE, RANGED }
-
 enum AIDecision { CHASE, ATTACK, IDLE }
 
-@export var attack_type: AttackType = AttackType.MELEE
+@export var attack_type: WeaponData.WeaponType = WeaponData.WeaponType.MELEE:
+	set(value):
+		attack_type = value
+		if attack_type == WeaponData.WeaponType.MELEE:
+			attack_distance = 40
+		else:
+			attack_distance = 150
+				
 @export var attack_distance:float
+@export var awareness_range:Area2D
+
+var is_aiming = false
 
 var last_direction:Vector2 = Vector2.DOWN
 var last_decision:AIDecision = AIDecision.IDLE
@@ -14,9 +22,23 @@ var last_decision:AIDecision = AIDecision.IDLE
 var target:Node2D
 var body:Node2D
 
+var timer:Timer
+
 func _ready() -> void:
-	target = get_tree().get_first_node_in_group(&"players")
+	awareness_range.area_entered.connect(_something_in_area)
 	body = owner as Node2D
+	
+	timer = Timer.new()
+	add_child(timer)
+	
+	timer.timeout.connect(_time_to_release_attack)
+	
+func _time_to_release_attack():
+	attack_release.emit()
+
+func _something_in_area(_body:Area2D):
+	if _body.get_parent().is_in_group(&"players"):
+		target = _body
 
 func process():
 	if target:
@@ -31,8 +53,11 @@ func process():
 	
 	if last_decision == AIDecision.ATTACK:
 		attack.emit()
-		
-	
+		if attack_type == WeaponData.WeaponType.RANGED:
+			timer.wait_time = randf_range(0, 2)
+			timer.one_shot = true
+			timer.start()
+			
 func get_movement_vector() -> Vector2:
 	if last_decision == AIDecision.CHASE:
 		return last_direction

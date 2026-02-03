@@ -37,3 +37,4 @@ Priority:
 	- Weapon Swap, weapon drop - DONE
 	- Procedural Dungeon
 	- Magic Wand
+	- Progress System( Xp/Upgrades) for the dungeon iterations

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TheRPGProject"
-run/main_scene="uid://bkah125sti8rj"
+run/main_scene="uid://ch1dvni24v37v"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=60
 config/icon="res://template/icon.png"
@@ -133,4 +133,5 @@ swap_weapons={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.1296759, 0.073512115, 0.09356985, 1)
 2d/snap/snap_2d_transforms_to_pixel=true

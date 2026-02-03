@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://ck7gjdft31vwg"]
+
+[ext_resource type="Script" uid="uid://b0s28d4a7q1fk" path="res://project/scripts/enemy_spawner.gd" id="1_yanqj"]
+[ext_resource type="PackedScene" uid="uid://cohfhpylefv2v" path="res://project/scenes/Enemy.tscn" id="2_p8ml3"]
+[ext_resource type="Script" uid="uid://by0h3dfosnska" path="res://project/scripts/resources/weapon_data.gd" id="3_m8etc"]
+[ext_resource type="Resource" uid="uid://46bkny7e56tx" path="res://project/resources/weapons/sword.tres" id="4_up0hr"]
+[ext_resource type="Resource" uid="uid://dwqm127y4slnj" path="res://project/resources/weapons/unarmed.tres" id="5_up0hr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yanqj"]
+radius = 141.12761
+
+[node name="EnemySpawner" type="Node2D" node_paths=PackedStringArray("radius_area2d")]
+script = ExtResource("1_yanqj")
+enemy_prefab = ExtResource("2_p8ml3")
+skins = Array[int]([3])
+radius_area2d = NodePath("Area2D")
+weapons = Array[ExtResource("3_m8etc")]([ExtResource("4_up0hr")])
+punch_weapon_data = ExtResource("5_up0hr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_yanqj")
+debug_color = Color(0.68473417, 0, 0.18088609, 0.41960785)

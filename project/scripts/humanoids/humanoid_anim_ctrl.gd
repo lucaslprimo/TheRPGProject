@@ -1,26 +1,31 @@
 class_name HumanoideAnimController
 extends AnimController
 
-@export var animator:AnimationPlayer
-@export var weapon_animator:AnimationPlayer
-@export var ranged_weapon_animator:AnimationPlayer
-@export var skin_sprite:Sprite2D
-@export var weapon_node:Node2D
-@export var input_hanlder:InputHandler = InputHandler.new()
-@export var weapon_sound_player:AudioStreamPlayer2D
+@export var animator: AnimationPlayer
+@export var weapon_animator: AnimationPlayer
+@export var ranged_weapon_animator: AnimationPlayer
+@export var skin_sprite: Sprite2D
+@export var weapon_node: Node2D
+@export var input_hanlder: InputHandler = InputHandler.new()
+@export var weapon_sound_player: AudioStreamPlayer2D
 
 func _ready() -> void:
-	weapon_animator.animation_finished.connect(_anim_finished)
-	ranged_weapon_animator.animation_finished.connect(_anim_finished)
+	weapon_animator.animation_finished.connect(_on_attack_anim_finished)
+	ranged_weapon_animator.animation_finished.connect(_on_attack_anim_finished)
+	animator.animation_finished.connect(_on_anim_finished)
 	
-func _anim_finished(_animName):
+func _on_attack_anim_finished(_animName):
+	attack_animation_finished.emit()
+	
+func _on_anim_finished(_animName):
 	animation_finished.emit()
-	
+
 func reset():
 	weapon_animator.stop()
+	ranged_weapon_animator.stop()
 	animator.stop()
 
-func play_anim(_name:StringName):
+func play_anim(_name: StringName):
 	var anim_name = _name + get_sprite_suffix_by_direction(input_hanlder.get_target_dir())
 
 	if animator.has_animation(_name):
@@ -28,21 +33,21 @@ func play_anim(_name:StringName):
 	else:
 		animator.play(anim_name)
 
-func play_attack_anim(_name:StringName):
+func play_attack_anim(_name: StringName):
 	if weapon_animator.has_animation(_name):
 		weapon_animator.play(_name)
 		play_sound()
 
-func play_ranged_attack_anim(_name:StringName):
+func play_ranged_attack_anim(_name: StringName):
 	if ranged_weapon_animator.has_animation(_name):
 		ranged_weapon_animator.play(_name)
-		play_sound()      
+		play_sound()
 
 func play_sound():
 	weapon_sound_player.pitch_scale = randf_range(0.8, 1.2)
 	weapon_sound_player.play()
 
-func get_string_by_direction(direction:Vector2) -> StringName:
+func get_string_by_direction(direction: Vector2) -> StringName:
 	if direction.y > 0:
 		weapon_node.scale.x = 1
 		return "_down"
@@ -62,7 +67,7 @@ func get_string_by_direction(direction:Vector2) -> StringName:
 	return "_down"
 	
 func get_sprite_suffix_by_direction(direction: Vector2) -> StringName:
-	if direction.length_squared() < 0.01:  # Threshold pequeno
+	if direction.length_squared() < 0.01: # Threshold pequeno
 		return "_down"
 	
 	var dir = direction.normalized()
@@ -93,5 +98,3 @@ func get_sprite_suffix_by_direction(direction: Vector2) -> StringName:
 		skin_sprite.flip_h = false
 		weapon_node.scale.x = 1
 		return "_side"
-	
-	

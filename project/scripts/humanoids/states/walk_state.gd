@@ -1,12 +1,13 @@
 extends State
 
-@export var equip_ctrl:EquipmentController
+@export var equip_ctrl: EquipmentController
 	
 func enter():
 	super.enter()
 	state_machine.input_handler.attack.connect(_should_attack)
+	state_machine.input_handler.skill.connect(_should_skill)
 	
-func process(_delta:float):
+func process(_delta: float):
 	if not is_active:
 		return
 		
@@ -15,13 +16,17 @@ func process(_delta:float):
 	check_input_vector()
 	
 func _should_attack():
-	match equip_ctrl.get_selected_weapon().weapon_type:
-		WeaponData.WeaponType.MELEE:
+	match equip_ctrl.get_selected_weapon().range_type:
+		WeaponData.RangeType.MELEE:
 			state_machine.stack_state(&"attack", false)
-		WeaponData.WeaponType.RANGED:
+		WeaponData.RangeType.RANGED:
 			state_machine.stack_state(&"ranged_attack", false)
 
-func physics_process(_delta:float):
+func _should_skill(skill_name: String):
+	state_machine.states[&"skill"].current_skill = skill_name
+	state_machine.stack_state(&"skill", false)
+
+func physics_process(_delta: float):
 	if not is_active:
 		return
 	
@@ -45,3 +50,4 @@ func check_input_vector():
 func exit():
 	super.exit()
 	state_machine.input_handler.attack.disconnect(_should_attack)
+	state_machine.input_handler.skill.disconnect(_should_skill)

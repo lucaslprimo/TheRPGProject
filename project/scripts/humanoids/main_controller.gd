@@ -3,23 +3,23 @@ extends Node
 
 const UNARMED_NAME := "unarmed"
 
-@export var player_ui:PlayerUI:
+@export var player_ui: PlayerUI:
 	set(value):
 		player_ui = value
 
-@export var equipment_ctrl:EquipmentController
-@export var hpcp:HealthComponent
-@export var atkcp:AttackingComponent
-@export var rangedcp:ShootingComponent
-@export var collectorcp:CollectorComponent
-@export var item_drop_template:PackedScene
+@export var equipment_ctrl: EquipmentController
+@export var hpcp: HealthComponent
+@export var atkcp: AttackingComponent
+@export var rangedcp: ShootingComponent
+@export var collectorcp: CollectorComponent
+@export var item_drop_template: PackedScene
 
-@export var starting_weapon_primary:WeaponData
-@export var starting_weapon_secondary:WeaponData
+@export var starting_weapon_primary: WeaponData
+@export var starting_weapon_secondary: WeaponData
 
 
 func _ready() -> void:
-	equipment_ctrl.set_starting_weapons(starting_weapon_primary, starting_weapon_secondary) 
+	equipment_ctrl.set_starting_weapons(starting_weapon_primary, starting_weapon_secondary)
 	_equip_weapon(starting_weapon_primary)
 	
 	collectorcp.allow_pickup.connect(_on_allow_pickup)
@@ -35,7 +35,7 @@ func _ready() -> void:
 func _needs_swaping():
 	return equipment_ctrl.get_selected_weapon().name != UNARMED_NAME and equipment_ctrl.get_unselected_weapon().name == UNARMED_NAME
 	
-func _equip_weapon(_weapon:WeaponData):
+func _equip_weapon(_weapon: WeaponData):
 	if _needs_swaping():
 		equipment_ctrl.swap_weapon()
 		if player_ui:
@@ -45,20 +45,20 @@ func _equip_weapon(_weapon:WeaponData):
 	
 	equipment_ctrl.equip_new_weapon(_weapon)
 	
-	match _weapon.weapon_type:
-		WeaponData.WeaponType.MELEE:
+	match _weapon.range_type:
+		WeaponData.RangeType.MELEE:
 			atkcp.damage = _weapon.damage
 			atkcp.knockback_force = _weapon.knockback_force
-		WeaponData.WeaponType.RANGED:
+		WeaponData.RangeType.RANGED:
 			rangedcp.damage = _weapon.damage
 			rangedcp.knockback_force = _weapon.knockback_force
 	
 	if player_ui:
 		player_ui.update_primary_slot(_weapon)
 		
-func _drop_weapon(_weapon:WeaponData):
+func _drop_weapon(_weapon: WeaponData):
 	if _weapon.name != UNARMED_NAME:
-		var drop:Item = item_drop_template.instantiate()
+		var drop: Item = item_drop_template.instantiate()
 		drop.data = _weapon
 		drop.global_position = owner.global_position
 		get_tree().root.add_child(drop)
@@ -76,7 +76,7 @@ func _input(event: InputEvent) -> void:
 			player_ui.swap_slots()
 
 
-func _update_primary_weapon_ui(_weapon:WeaponData):
+func _update_primary_weapon_ui(_weapon: WeaponData):
 	if not player_ui:
 		return
 	
@@ -101,7 +101,7 @@ func _on_health_changed(_old_hp, _new_hp):
 		
 	player_ui.update_hp(_new_hp)
 	
-func _on_allow_pickup(_info:String):
+func _on_allow_pickup(_info: String):
 	equipment_ctrl.allow_pickup(_info)
 	
 func _on_deny_pickup():

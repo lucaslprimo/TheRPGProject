@@ -3,6 +3,7 @@ extends Node
 
 signal attack
 signal attack_release
+signal skill(value)
 
 func process():
 	pass

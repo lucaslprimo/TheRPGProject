@@ -114,6 +114,6 @@ func get_accuracy_percentage(charge_time: float, max_charge_time: float) -> floa
 	var charge_ratio = min(charge_time / max_charge_time, 1.0)
 	
 	var min_accuracy = accuracy  
-	var accuracy = lerp(min_accuracy, 1.0, charge_ratio)
+	var final_accuracy = lerp(min_accuracy, 1.0, charge_ratio)
 	
-	return accuracy
+	return final_accuracy

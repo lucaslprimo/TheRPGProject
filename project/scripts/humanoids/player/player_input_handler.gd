@@ -1,22 +1,22 @@
 extends InputHandler
 
-@export var movcp:MovementComponent
-@export var weapon_node:Node2D
+@export var movcp: MovementComponent
+@export var weapon_node: Node2D
 
-var move_to:Vector2
+var move_to: Vector2
 
 var _should_move = false
 
-var player:CharacterBody2D
+var player: CharacterBody2D
 
-enum PlayerSlot{
+enum PlayerSlot {
 	Player_1,
 	Player_2,
 	Player_3,
 	Player_4
 }
 
-@export var playerSlot:PlayerSlot = PlayerSlot.Player_1
+@export var playerSlot: PlayerSlot = PlayerSlot.Player_1
 
 func _ready() -> void:
 	if owner is CharacterBody2D:
@@ -43,6 +43,12 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("move"):
 		move_to = player.get_global_mouse_position()
+		
+	if event.is_action_pressed("skill_dash"):
+		skill.emit("dash")
+		
+	if event.is_action_pressed("skill_utility"):
+		skill.emit("utility")
 
 func reset_movement():
 	move_to = owner.global_position

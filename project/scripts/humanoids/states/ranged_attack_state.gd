@@ -1,9 +1,9 @@
 extends State
 
-@export var atkcp:ShootingComponent
-@export var dash_speed:int = 200
-@export var weapon_node:Node2D
-@export var arrow_sprite:Sprite2D
+@export var atkcp: ShootingComponent
+@export var dash_speed: int = 200
+@export var weapon_node: Node2D
+@export var arrow_sprite: Sprite2D
 
 var is_aiming = false
 
@@ -21,16 +21,16 @@ func _aim_attack():
 	atkcp.aim()
 	
 func _start_fire_anim():
-	state_machine.animator.animation_finished.connect(_fire_attack)
+	state_machine.animator.attack_animation_finished.connect(_fire_attack)
 	state_machine.animator.play_ranged_attack_anim(&"fire")
 	
-func process(_delta:float):
+func process(_delta: float):
 	state_machine.input_handler.process()
 	if is_aiming:
 		state_machine.animator.play_anim(&"aim")
 		weapon_node.look_at(state_machine.input_handler.get_target_pos())
 		
-func physics_process(_delta:float):
+func physics_process(_delta: float):
 	if owner is CharacterBody2D:
 		owner.velocity = state_machine.movcp.get_velocity_vector_smooth(check_input_vector(), owner.velocity, _delta)
 		owner.move_and_slide()
@@ -54,5 +54,5 @@ func exit():
 	state_machine.input_handler.reset_movement()
 	state_machine.movcp.reset_slow()
 	weapon_node.visible = false
-	state_machine.animator.animation_finished.disconnect(_fire_attack)
+	state_machine.animator.attack_animation_finished.disconnect(_fire_attack)
 	state_machine.input_handler.attack_release.disconnect(_start_fire_anim)

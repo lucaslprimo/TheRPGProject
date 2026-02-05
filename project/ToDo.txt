@@ -1,6 +1,6 @@
 To Do:
 	
-- Press Q for Switching from btwn the 2 weapos equiped
+- Press R for Switching from btwn the 2 weapos equiped
 - Press E or wathever for Mobility
 	- Heavy weapons(Axe, Hammer) could jump and damage a circle area
 	- Light weapons(Sword, dagger) could dash and do damage on the dashing area
@@ -11,6 +11,7 @@ Bow:
 	W - Multipe Arrows Cone
 	E - Thumble
 	R - Trap
+	Invisibility
 
 Axe:
 	W - Joy of Battle (Recovers % of the damage dealt)
@@ -38,3 +39,10 @@ Priority:
 	- Procedural Dungeon
 	- Magic Wand
 	- Progress System( Xp/Upgrades) for the dungeon iterations
+
+
+
+Skills: 
+ - Mobility: dash, jump
+ - Utility: invisibility, taunt, rage
+ 

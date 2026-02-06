@@ -48,7 +48,7 @@ func hide_ui():
 	if ui_pickup:
 		ui_pickup.visible = false
 		
-func get_selected_weapon():
+func get_selected_weapon() -> WeaponData:
 	return equiped_weapons[selected_weapon_slot-1]
 	
 func set_weapon_to_selected_slot(weapon:WeaponData):

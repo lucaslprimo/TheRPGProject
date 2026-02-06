@@ -8,20 +8,27 @@ var selected_weapon: WeaponData
 @export var skills_sword: Dictionary[String, SkillBase] = {}
 
 @export var anim_ctrl: AnimController
+@export var input_handler: InputHandler = InputHandler.new()
 
-signal anim_finished()
+signal skill_finished()
 
 func _ready() -> void:
-	anim_ctrl.animation_finished.connect(on_anim_finished)
-
 	for skill in skills_axe.values():
+		skill.input_handler = input_handler
 		skill.anim_ctrl = anim_ctrl
+		skill.finished.connect(on_skill_finished)
 	for skill in skills_bow.values():
+		skill.input_handler = input_handler
 		skill.anim_ctrl = anim_ctrl
+		skill.finished.connect(on_skill_finished)
 	for skill in skills_hand.values():
+		skill.input_handler = input_handler
 		skill.anim_ctrl = anim_ctrl
+		skill.finished.connect(on_skill_finished)
 	for skill in skills_sword.values():
+		skill.input_handler = input_handler
 		skill.anim_ctrl = anim_ctrl
+		skill.finished.connect(on_skill_finished)
 
 func use_skill(
 	skill_name: String,
@@ -44,5 +51,5 @@ func use_skill(
 		skill.target_pos = target_pos
 		skill.use()
 
-func on_anim_finished():
-	anim_finished.emit()
+func on_skill_finished():
+	skill_finished.emit()

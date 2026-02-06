@@ -1,23 +1,23 @@
-[gd_scene load_steps=71 format=3 uid="uid://c8xs5tiuk8csl"]
+[gd_scene load_steps=75 format=3 uid="uid://c8xs5tiuk8csl"]
 
 [ext_resource type="Script" uid="uid://dkn878huqsmrg" path="res://project/scripts/humanoids/humanoid_base.gd" id="1_e3xw2"]
-[ext_resource type="Texture2D" uid="uid://bj1tn7or31ghj" path="res://project/assets/Characters/Shadow.png" id="1_x2all"]
-[ext_resource type="Texture2D" uid="uid://byreayk5iby2y" path="res://project/assets/Characters/Hunter/SpriteSheet.png" id="2_8yvsn"]
+[ext_resource type="Texture2D" uid="uid://baifyngifhbto" path="res://project/assets/Characters/Shadow.png" id="1_x2all"]
+[ext_resource type="Texture2D" uid="uid://3w4547733bjn" path="res://project/assets/Characters/Hunter/SpriteSheet.png" id="2_8yvsn"]
 [ext_resource type="Script" uid="uid://cji568s78d5d3" path="res://project/scripts/humanoids/main_controller.gd" id="2_cj13g"]
 [ext_resource type="Script" uid="uid://cb8nmj1tedwys" path="res://project/scripts/components/hurtbox_component.gd" id="3_8yvsn"]
 [ext_resource type="Script" uid="uid://c0mwlx4wif2vh" path="res://project/scripts/humanoids/skin_manager.gd" id="3_x3p1x"]
 [ext_resource type="Script" uid="uid://c1c4on1mymyim" path="res://project/scripts/utils/state_machine/state_machine.gd" id="4_kqmbg"]
-[ext_resource type="Texture2D" uid="uid://tshqx1lt4pef" path="res://project/assets/fx/SlashCurved.png" id="5_7ub6x"]
+[ext_resource type="Texture2D" uid="uid://bcvgip3itvvnu" path="res://project/assets/fx/SlashCurved.png" id="5_7ub6x"]
 [ext_resource type="Script" uid="uid://c6y1t1dbmj457" path="res://project/scripts/humanoids/states/idle_state.gd" id="5_mgefr"]
-[ext_resource type="Texture2D" uid="uid://884bsfawq7m0" path="res://project/assets/Characters/Knight/SpriteSheet.png" id="5_xqs57"]
+[ext_resource type="Texture2D" uid="uid://c3ktyancgr6ov" path="res://project/assets/Characters/Knight/SpriteSheet.png" id="5_xqs57"]
 [ext_resource type="Script" uid="uid://bxw57tbquty01" path="res://project/scripts/components/attacking_component.gd" id="6_8xpxb"]
-[ext_resource type="Texture2D" uid="uid://bttwc2k7mne88" path="res://project/assets/Characters/Inspector/SpriteSheet.png" id="6_a3lht"]
+[ext_resource type="Texture2D" uid="uid://0h2qjw81em80" path="res://project/assets/Characters/Inspector/SpriteSheet.png" id="6_a3lht"]
 [ext_resource type="Script" uid="uid://cgq5xhooviis4" path="res://project/scripts/humanoids/states/walk_state.gd" id="6_mgefr"]
 [ext_resource type="Script" uid="uid://dypjgkp7aga7e" path="res://project/scripts/humanoids/humanoid_anim_ctrl.gd" id="7_c6dlt"]
-[ext_resource type="Texture2D" uid="uid://cihbp1dlkktwl" path="res://project/assets/fx/SlashCircle.png" id="7_hmw2o"]
+[ext_resource type="Texture2D" uid="uid://qs4hbvn742bo" path="res://project/assets/fx/SlashCircle.png" id="7_hmw2o"]
 [ext_resource type="Texture2D" uid="uid://ky27newy2hwv" path="res://project/assets/Weapons/Bow/Sprite.png" id="8_t6alg"]
 [ext_resource type="Script" uid="uid://c57fo620t84ns" path="res://project/scripts/components/movement_component.gd" id="8_wdesk"]
-[ext_resource type="Texture2D" uid="uid://dh12ajp7an34k" path="res://project/assets/Characters/LionYellow/SpriteSheet.png" id="8_y1gv5"]
+[ext_resource type="Texture2D" uid="uid://ct8ukvbjjskt8" path="res://project/assets/Characters/LionYellow/SpriteSheet.png" id="8_y1gv5"]
 [ext_resource type="Texture2D" uid="uid://bcbjvy4s43qye" path="res://project/assets/Weapons/Bow/Arrow.png" id="9_ti3im"]
 [ext_resource type="Script" uid="uid://8qf5fiyl4yu3" path="res://project/scripts/components/health_component.gd" id="14_a3lht"]
 [ext_resource type="PackedScene" uid="uid://b1865id5ue0h5" path="res://project/scenes/Blood.tscn" id="15_5dl4n"]
@@ -35,9 +35,11 @@
 [ext_resource type="Resource" uid="uid://dwqm127y4slnj" path="res://project/resources/weapons/unarmed.tres" id="26_f8gpl"]
 [ext_resource type="Script" uid="uid://cf2l0sdk0mwtd" path="res://project/scripts/components/collector_component.gd" id="27_ph6ji"]
 [ext_resource type="Script" uid="uid://cmkbl1igp5f81" path="res://project/scripts/humanoids/skills/skill_manager.gd" id="33_p7ikw"]
-[ext_resource type="Script" path="res://project/scripts/humanoids/progress_bar_ctrl.gd" id="33_x3e8u"]
-[ext_resource type="FontFile" uid="uid://dxrywbia3q225" path="res://project/assets/font/font_normal.ttf" id="34_5dl4n"]
+[ext_resource type="Script" uid="uid://i8vj3ll7m700" path="res://project/scripts/humanoids/progress_bar_ctrl.gd" id="33_x3e8u"]
+[ext_resource type="FontFile" uid="uid://dgmfx26ownlxl" path="res://project/assets/font/font_normal.ttf" id="34_5dl4n"]
 [ext_resource type="Script" uid="uid://bnsa1nw6t1hio" path="res://project/scripts/humanoids/skills/skill_dash.gd" id="34_w6hqh"]
+[ext_resource type="AudioStream" uid="uid://cuxifucmy1v7m" path="res://project/assets/audio/sfx/Magic & Skill/Fx.wav" id="35_j5jca"]
+[ext_resource type="AudioStream" uid="uid://dkveenumata3b" path="res://project/assets/audio/sfx/Jump & Bounce/Bounce5.wav" id="38_aowpv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lftxd"]
 radius = 6.0
@@ -1387,6 +1389,9 @@ tracks/6/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_w6hqh"]
+resource_name = "dash"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c3jn5"]
 _data = {
 &"RESET": SubResource("Animation_1h5i8"),
@@ -1396,6 +1401,7 @@ _data = {
 &"attack_down": SubResource("Animation_77afj"),
 &"attack_side": SubResource("Animation_cri8v"),
 &"attack_up": SubResource("Animation_7ub6x"),
+&"dash": SubResource("Animation_w6hqh"),
 &"died": SubResource("Animation_x338g"),
 &"idle_down": SubResource("Animation_fhn78"),
 &"idle_side": SubResource("Animation_fihu6"),
@@ -1419,6 +1425,9 @@ font_size = 9
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_w6hqh"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Humanoid" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_e3xw2")
@@ -1434,7 +1443,7 @@ item_drop_template = ExtResource("25_ph6ji")
 starting_weapon_primary = ExtResource("26_f8gpl")
 starting_weapon_secondary = ExtResource("26_f8gpl")
 
-[node name="AnimCtrl" type="Node" parent="." node_paths=PackedStringArray("animator", "weapon_animator", "ranged_weapon_animator", "skin_sprite", "weapon_node", "weapon_sound_player")]
+[node name="AnimCtrl" type="Node" parent="." node_paths=PackedStringArray("animator", "weapon_animator", "ranged_weapon_animator", "skin_sprite", "weapon_node", "weapon_sound_player", "weapon_aim_sound_player")]
 script = ExtResource("7_c6dlt")
 animator = NodePath("../Skin/SkinAnimation")
 weapon_animator = NodePath("../MeleeWeapon/WeaponAnimation")
@@ -1442,6 +1451,7 @@ ranged_weapon_animator = NodePath("../RangedWeapon/RangedAnimation")
 skin_sprite = NodePath("../Skin")
 weapon_node = NodePath("../MeleeWeapon")
 weapon_sound_player = NodePath("../WeaponSound")
+weapon_aim_sound_player = NodePath("../WeaponAimSound")
 
 [node name="GroundHitBox" type="CollisionShape2D" parent="."]
 visible = false
@@ -1450,6 +1460,7 @@ shape = SubResource("CircleShape2D_lftxd")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.50980395)
+z_index = -11
 position = Vector2(0, -1)
 texture = ExtResource("1_x2all")
 
@@ -1638,7 +1649,6 @@ script = ExtResource("21_f8gpl")
 accuracy = 0.7
 projectile = ExtResource("22_yx7wt")
 shooting_point = NodePath("../RangedWeapon/ShootingPoint")
-cooldown_time = 0.1
 metadata/_custom_type_script = "uid://ndvvq6miytjg"
 
 [node name="MovementComponent" type="Node" parent="."]
@@ -1664,8 +1674,10 @@ skills_bow = {
 }
 anim_ctrl = NodePath("../AnimCtrl")
 
-[node name="SkillDash" type="Node2D" parent="SkillManager"]
+[node name="SkillDash" type="Node2D" parent="SkillManager" node_paths=PackedStringArray("trail_particles")]
 script = ExtResource("34_w6hqh")
+trail_particles = NodePath("../../TrailDash")
+dash_sound = ExtResource("35_j5jca")
 metadata/_custom_type_script = "uid://bnsa1nw6t1hio"
 
 [node name="CollectorComponent" type="Area2D" parent="."]
@@ -1688,6 +1700,9 @@ weapon_hit_player = NodePath("../HitSound")
 weapon_animation = NodePath("../MeleeWeapon/WeaponAnimation")
 
 [node name="WeaponSound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="WeaponAimSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("38_aowpv")
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 
@@ -1722,3 +1737,16 @@ text = "100"
 label_settings = SubResource("LabelSettings_x3e8u")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TrailDash" type="CPUParticles2D" parent="."]
+z_index = -10
+position = Vector2(0, -7)
+emitting = false
+amount = 50
+lifetime = 0.2
+gravity = Vector2(0, 0)
+angle_min = 20.0
+angle_max = 20.0
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+color_ramp = SubResource("Gradient_w6hqh")

@@ -7,8 +7,8 @@
 
 [resource]
 script = ExtResource("1_70mkl")
-damage = 40
-weapon_type = 1
+damage = 30
+range_type = 1
 knockback_force = 1
 weapon_sound = ExtResource("3_cqvx8")
 weapon_hit_sound = ExtResource("2_dsxe1")

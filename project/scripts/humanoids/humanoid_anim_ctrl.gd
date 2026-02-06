@@ -8,6 +8,7 @@ extends AnimController
 @export var weapon_node: Node2D
 @export var input_hanlder: InputHandler = InputHandler.new()
 @export var weapon_sound_player: AudioStreamPlayer2D
+@export var weapon_aim_sound_player: AudioStreamPlayer2D
 
 func _ready() -> void:
 	weapon_animator.animation_finished.connect(_on_attack_anim_finished)
@@ -38,10 +39,18 @@ func play_attack_anim(_name: StringName):
 		weapon_animator.play(_name)
 		play_sound()
 
-func play_ranged_attack_anim(_name: StringName):
+func play_ranged_attack_anim(_name: StringName, aiming:bool = false):
 	if ranged_weapon_animator.has_animation(_name):
 		ranged_weapon_animator.play(_name)
-		play_sound()
+		
+		if aiming:
+			play_ranged_aim_sound()
+		else:
+			play_sound()
+
+func play_ranged_aim_sound():
+	weapon_aim_sound_player.pitch_scale = randf_range(0.8, 1.2)
+	weapon_aim_sound_player.play()
 
 func play_sound():
 	weapon_sound_player.pitch_scale = randf_range(0.8, 1.2)

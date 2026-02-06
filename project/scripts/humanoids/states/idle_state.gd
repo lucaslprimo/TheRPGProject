@@ -35,7 +35,7 @@ func physics_process(_delta: float):
 		return
 		
 	if owner is CharacterBody2D:
-		owner.velocity = state_machine.movcp.get_velocity_vector_smooth(Vector2.ZERO, owner.velocity, _delta)
+		owner.velocity = state_machine.movcp.get_velocity(Vector2.ZERO)
 		owner.move_and_slide()
 		
 func exit():

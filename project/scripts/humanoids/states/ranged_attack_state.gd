@@ -1,7 +1,8 @@
 extends State
 
 @export var atkcp: ShootingComponent
-@export var dash_speed: int = 200
+@export var dash_speed: int = 10
+@export var dash_duration: float = 0.1
 @export var weapon_node: Node2D
 @export var arrow_sprite: Sprite2D
 
@@ -16,7 +17,7 @@ func enter():
 
 func _aim_attack():
 	state_machine.animator.play_anim(&"attack")
-	state_machine.animator.play_ranged_attack_anim(&"aim")
+	state_machine.animator.play_ranged_attack_anim(&"aim", true)
 	is_aiming = true
 	atkcp.aim()
 	
@@ -29,11 +30,7 @@ func process(_delta: float):
 	if is_aiming:
 		state_machine.animator.play_anim(&"aim")
 		weapon_node.look_at(state_machine.input_handler.get_target_pos())
-		
-func physics_process(_delta: float):
-	if owner is CharacterBody2D:
-		owner.velocity = state_machine.movcp.get_velocity_vector_smooth(check_input_vector(), owner.velocity, _delta)
-		owner.move_and_slide()
+	
 	
 func check_input_vector():
 	var input_vector = state_machine.input_handler.get_movement_vector()
@@ -42,13 +39,17 @@ func check_input_vector():
 	
 func _fire_attack():
 	arrow_sprite.visible = false
+	
+	if atkcp.aiming_time > 0.2:
+		var tween = create_tween()
+		tween.tween_property(owner, "position", owner.global_position + (state_machine.input_handler.get_target_dir() * dash_speed * -1), dash_duration)
+	
 	atkcp.fire(weapon_node.transform.x.normalized())
 	is_aiming = false
 	state_machine.pop_state()
 	
-	if owner is CharacterBody2D:
-		owner.velocity = Vector2.ZERO
-		owner.velocity = (owner.global_position - state_machine.input_handler.get_target_pos()).normalized() * dash_speed
+	
+	
 	
 func exit():
 	state_machine.input_handler.reset_movement()

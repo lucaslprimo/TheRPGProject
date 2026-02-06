@@ -10,7 +10,7 @@ func play_anim(_name: StringName):
 func play_attack_anim(_name: StringName):
 	pass
 	
-func play_ranged_attack_anim(_name: StringName):
+func play_ranged_attack_anim(_name: StringName, aiming:bool = false):
 	pass
 
 func reset():

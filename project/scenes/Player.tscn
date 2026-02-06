@@ -61,7 +61,7 @@ movcp = NodePath("../MovementComponent")
 max_speed = 150
 desceleration = 800
 
-[node name="SkillManager" parent="." index="15" node_paths=PackedStringArray("skills_axe", "skills_bow", "skills_hand", "skills_sword")]
+[node name="SkillManager" parent="." index="15" node_paths=PackedStringArray("skills_axe", "skills_bow", "skills_hand", "skills_sword", "input_handler")]
 skills_axe = {
 "dash": NodePath("SkillDash")
 }
@@ -74,6 +74,7 @@ skills_hand = {
 skills_sword = {
 "dash": NodePath("SkillDash")
 }
+input_handler = NodePath("../PlayerInputHandler")
 
 [node name="EquipmentCtrl" parent="." index="17" node_paths=PackedStringArray("ui_pickup")]
 ui_pickup = NodePath("../InteractionUI/Label")

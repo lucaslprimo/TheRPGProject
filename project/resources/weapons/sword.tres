@@ -8,6 +8,7 @@
 [resource]
 script = ExtResource("1_abq03")
 damage = 20
+weapon_type = 1
 scale_modifier = 0.5
 weapon_sound = ExtResource("3_wjmp8")
 weapon_hit_sound = ExtResource("3_8biqe")

@@ -7,6 +7,7 @@
 [resource]
 script = ExtResource("1_1wstk")
 damage = 5
+weapon_type = 3
 weapon_sound = ExtResource("2_q3lx4")
 weapon_hit_sound = ExtResource("2_18g0x")
 name = "unarmed"

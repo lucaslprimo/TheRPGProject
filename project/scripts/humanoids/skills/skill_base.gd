@@ -9,8 +9,9 @@ var direction: Vector2 = Vector2.ZERO
 var target_pos: Vector2 = Vector2.ZERO
 
 var anim_ctrl: AnimController
+var input_handler: InputHandler
 
-signal anim_finished
+signal finished
 
 func _ready():
 	cooldown_timer = Timer.new()
@@ -18,9 +19,6 @@ func _ready():
 	cooldown_timer.timeout.connect(_on_cooldown_timeout)
 	cooldown_timer.wait_time = cooldown
 	cooldown_timer.one_shot = true
-	
-func _on_anim_finished():
-	anim_finished.emit()
 
 func _on_cooldown_timeout():
 	can_use = true

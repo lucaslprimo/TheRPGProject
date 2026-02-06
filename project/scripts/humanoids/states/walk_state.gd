@@ -33,7 +33,7 @@ func physics_process(_delta: float):
 	var input_vector = check_input_vector()
 	
 	if owner is CharacterBody2D:
-		owner.velocity = state_machine.movcp.get_velocity_vector_smooth(input_vector, owner.velocity, _delta)
+		owner.velocity = state_machine.movcp.get_velocity(input_vector)
 		owner.move_and_slide()
 	
 func check_input_vector():

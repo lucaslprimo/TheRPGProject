@@ -16,19 +16,23 @@ func _ready() -> void:
 	for skill in skills_axe.values():
 		skill.input_handler = input_handler
 		skill.anim_ctrl = anim_ctrl
-		skill.finished.connect(on_skill_finished)
+		if not skill.finished.is_connected(on_skill_finished):
+			skill.finished.connect(on_skill_finished)
 	for skill in skills_bow.values():
 		skill.input_handler = input_handler
 		skill.anim_ctrl = anim_ctrl
-		skill.finished.connect(on_skill_finished)
+		if not skill.finished.is_connected(on_skill_finished):
+			skill.finished.connect(on_skill_finished)
 	for skill in skills_hand.values():
 		skill.input_handler = input_handler
 		skill.anim_ctrl = anim_ctrl
-		skill.finished.connect(on_skill_finished)
+		if not skill.finished.is_connected(on_skill_finished):
+			skill.finished.connect(on_skill_finished)
 	for skill in skills_sword.values():
 		skill.input_handler = input_handler
 		skill.anim_ctrl = anim_ctrl
-		skill.finished.connect(on_skill_finished)
+		if not skill.finished.is_connected(on_skill_finished):
+			skill.finished.connect(on_skill_finished)
 
 func use_skill(
 	skill_name: String,

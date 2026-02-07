@@ -22,7 +22,8 @@ func _aim_attack():
 	atkcp.aim()
 	
 func _start_fire_anim():
-	state_machine.animator.attack_animation_finished.connect(_fire_attack)
+	if not state_machine.animator.attack_animation_finished.is_connected(_fire_attack):
+		state_machine.animator.attack_animation_finished.connect(_fire_attack)
 	state_machine.animator.play_ranged_attack_anim(&"fire")
 	
 func process(_delta: float):
@@ -38,6 +39,7 @@ func check_input_vector():
 	return input_vector
 	
 func _fire_attack():
+	state_machine.animator.attack_animation_finished.disconnect(_fire_attack)
 	arrow_sprite.visible = false
 	
 	if atkcp.aiming_time > 0.2:
@@ -55,5 +57,4 @@ func exit():
 	state_machine.input_handler.reset_movement()
 	state_machine.movcp.reset_slow()
 	weapon_node.visible = false
-	state_machine.animator.attack_animation_finished.disconnect(_fire_attack)
 	state_machine.input_handler.attack_release.disconnect(_start_fire_anim)

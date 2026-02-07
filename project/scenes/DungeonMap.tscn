@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://ch1dvni24v37v"]
+[gd_scene load_steps=11 format=4 uid="uid://ch1dvni24v37v"]
 
 [ext_resource type="TileSet" uid="uid://tir0rfjtiwma" path="res://project/resources/tileset.tres" id="1_2b6e6"]
 [ext_resource type="Script" uid="uid://2n7k70fbkcq4" path="res://project/scripts/game_manager.gd" id="1_an1cr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ck7gjdft31vwg" path="res://project/scenes/EnemySpawner.tscn" id="6_f50jd"]
 [ext_resource type="PackedScene" uid="uid://cegip78q21h5u" path="res://project/scenes/Item.tscn" id="7_efb7w"]
 [ext_resource type="Script" uid="uid://by0h3dfosnska" path="res://project/scripts/resources/weapon_data.gd" id="7_epf3k"]
+[ext_resource type="Resource" uid="uid://bd18jrsp3nwjq" path="res://project/resources/weapons/axe.tres" id="9_an1cr"]
 [ext_resource type="Resource" uid="uid://dharqcgbowdlv" path="res://project/resources/weapons/bow.tres" id="10_mgnq4"]
 
 [node name="DungeonMap" type="Node2D"]
@@ -47,7 +48,7 @@ y_sort_enabled = true
 position = Vector2(-311, -322)
 count = 8
 one_shot = true
-weapons = Array[ExtResource("7_epf3k")]([ExtResource("10_mgnq4")])
+weapons = Array[ExtResource("7_epf3k")]([ExtResource("10_mgnq4"), ExtResource("9_an1cr")])
 spawn_layer_target = NodePath("..")
 
 [node name="Item" parent="Live" instance=ExtResource("7_efb7w")]

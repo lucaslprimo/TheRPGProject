@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://cohfhpylefv2v"]
 
 [ext_resource type="PackedScene" uid="uid://c8xs5tiuk8csl" path="res://project/scenes/HumanoidBase.tscn" id="1_fceif"]
-[ext_resource type="Texture2D" uid="uid://cjat5nk2f7ugv" path="res://project/assets/Characters/DemonGreen/SpriteSheet.png" id="2_8huj5"]
+[ext_resource type="Texture2D" uid="uid://5fgik7xbl4rf" path="res://project/assets/Characters/DemonGreen/SpriteSheet.png" id="2_8huj5"]
 [ext_resource type="Script" uid="uid://cr5xyqinmscmn" path="res://project/scripts/components/enemy_ai_component.gd" id="2_hgxob"]
-[ext_resource type="Texture2D" uid="uid://b4wuh201fgpl0" path="res://project/assets/Characters/SkeletonDemon/SpriteSheet.png" id="3_b4ehm"]
-[ext_resource type="Texture2D" uid="uid://cycdkqpn2pk85" path="res://project/assets/Characters/Spirit/SpriteSheet.png" id="4_e7vsw"]
-[ext_resource type="Texture2D" uid="uid://c7r0nrf3hqx1a" path="res://project/assets/Characters/Skeleton/SpriteSheet.png" id="5_wr3pc"]
-[ext_resource type="Texture2D" uid="uid://snm1invrmpfw" path="res://project/assets/Characters/DemonRed/SpriteSheet.png" id="6_7b3np"]
+[ext_resource type="Texture2D" uid="uid://d3qi5cp8n3ef6" path="res://project/assets/Characters/SkeletonDemon/SpriteSheet.png" id="3_b4ehm"]
+[ext_resource type="Texture2D" uid="uid://bt3r6dcbnytw2" path="res://project/assets/Characters/Spirit/SpriteSheet.png" id="4_e7vsw"]
+[ext_resource type="Texture2D" uid="uid://bs1v3lxurwusg" path="res://project/assets/Characters/Skeleton/SpriteSheet.png" id="5_wr3pc"]
+[ext_resource type="Texture2D" uid="uid://sgej2r8i52gb" path="res://project/assets/Characters/DemonRed/SpriteSheet.png" id="6_7b3np"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hgxob"]
 radius = 127.01575
@@ -44,9 +44,6 @@ input_handler = NodePath("../EnemyAIComponenent")
 [node name="AttackingComponent" parent="." index="9"]
 cooldown = 2.0
 
-[node name="ShootingComponent" parent="." index="10"]
-cooldown_time = 1.0
-
 [node name="EnemyAIComponenent" type="Node" parent="." index="11" node_paths=PackedStringArray("awareness_range")]
 script = ExtResource("2_hgxob")
 attack_distance = 30.0
@@ -59,8 +56,13 @@ max_speed = 50
 [node name="HealthComponent" parent="." index="13"]
 max_hp = 20
 
-[node name="TextureProgressBar" parent="." index="19"]
-visible = false
+[node name="SkillManager" parent="." index="15" node_paths=PackedStringArray("skills_axe", "skills_bow")]
+skills_axe = {
+"dash": NodePath("SkillDash")
+}
+skills_bow = {
+"dash": NodePath("SkillDash")
+}
 
 [node name="AwarenessRange" type="Area2D" parent="." index="20"]
 collision_layer = 1024
@@ -70,3 +72,6 @@ collision_mask = 4
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_hgxob")
 debug_color = Color(0.88200253, 0.014283666, 0.36205536, 0.41960785)
+
+[node name="TextureProgressBar" parent="." index="22"]
+visible = false

@@ -71,6 +71,6 @@ func get_target_pos() -> Vector2:
 	
 func get_target_dir() -> Vector2:
 	if target:
-		return target.global_position
+		return (target.global_position - owner.global_position).normalized()
 	
 	return Vector2.ZERO

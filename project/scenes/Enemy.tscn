@@ -44,9 +44,6 @@ input_handler = NodePath("../EnemyAIComponenent")
 [node name="AttackingComponent" parent="." index="9"]
 cooldown = 2.0
 
-[node name="ShootingComponent" parent="." index="10"]
-cooldown_time = 1.0
-
 [node name="EnemyAIComponenent" type="Node" parent="." index="11" node_paths=PackedStringArray("awareness_range")]
 script = ExtResource("2_hgxob")
 attack_distance = 30.0
@@ -59,8 +56,13 @@ max_speed = 50
 [node name="HealthComponent" parent="." index="13"]
 max_hp = 20
 
-[node name="TextureProgressBar" parent="." index="19"]
-visible = false
+[node name="SkillManager" parent="." index="15" node_paths=PackedStringArray("skills_axe", "skills_bow")]
+skills_axe = {
+"dash": NodePath("SkillDash")
+}
+skills_bow = {
+"dash": NodePath("SkillDash")
+}
 
 [node name="AwarenessRange" type="Area2D" parent="." index="20"]
 collision_layer = 1024
@@ -70,3 +72,6 @@ collision_mask = 4
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_hgxob")
 debug_color = Color(0.88200253, 0.014283666, 0.36205536, 0.41960785)
+
+[node name="TextureProgressBar" parent="." index="22"]
+visible = false

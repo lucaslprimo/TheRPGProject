@@ -59,7 +59,6 @@ movcp = NodePath("../MovementComponent")
 
 [node name="MovementComponent" parent="." index="12"]
 max_speed = 150
-desceleration = 800
 
 [node name="SkillManager" parent="." index="15" node_paths=PackedStringArray("skills_axe", "skills_bow", "skills_hand", "skills_sword", "input_handler")]
 skills_axe = {
@@ -94,10 +93,10 @@ label_settings = SubResource("LabelSettings_qtec2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HitSound" parent="." index="20"]
+[node name="HitSound" parent="." index="21"]
 volume_db = -10.0
 
-[node name="TextureProgressBar" parent="." index="21"]
+[node name="TextureProgressBar" parent="." index="22"]
 visible = false
 offset_top = -18.0
 offset_bottom = -17.0

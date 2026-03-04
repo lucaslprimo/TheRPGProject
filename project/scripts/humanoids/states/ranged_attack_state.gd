@@ -1,4 +1,4 @@
-extends State
+ extends State
 
 @export var atkcp: ShootingComponent
 @export var dash_speed: int = 10
@@ -49,8 +49,6 @@ func _fire_attack():
 	atkcp.fire(weapon_node.transform.x.normalized())
 	is_aiming = false
 	state_machine.pop_state()
-	
-	
 	
 	
 func exit():
